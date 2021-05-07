@@ -1,7 +1,39 @@
 ﻿@page "/"
 
+@inject NavigationManager navManager
+@inject IJSRuntime jsRuntime
+@inject HttpClient http
+
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+sidenavigation
+<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+    <span class="oi oi-home" aria-hidden="true"></span> Index
+</NavLink>
+
+navigationManager
+<td>
+    <button class="btn btn-secondary" @onclick="() => editEntry(2)">Testseite ohne Benachrichtigung</button>
+    <button class="btn btn-secondary" @onclick="() => deleteEntry(1)">Testseite mit Benachrichtigung</button>
+</td>
+
+
+
+@{ 
+
+    void editEntry(int id)
+    {
+        string uri = $"Edit/{id}";
+        navManager.NavigateTo(uri);
+    }
+
+    async void deleteEntry(int id)
+    {
+        //JS-function
+        bool confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+    }
+}
