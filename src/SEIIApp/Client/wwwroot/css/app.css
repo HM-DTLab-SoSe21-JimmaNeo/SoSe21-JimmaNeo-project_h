@@ -50,12 +50,6 @@ a, .btn-link {
     transform: translate(-55%, -50%);
 }
 
-.far:before {
-    color: black;
-}
-
-
-
 .content {
     padding-top: 1.1rem;
 }
