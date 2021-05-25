@@ -17,7 +17,7 @@ sidenavigation
 
 navigationManager
 <td>
-    <button class="btn btn-secondary" @onclick="() => editEntry(2)">Testseite ohne Benachrichtigung</button>
+    <button class="btn btn-secondary" @onclick="() => EntryLesson(1)">Lesson 1</button>
     <button class="btn btn-secondary" @onclick="() => deleteEntry(1)">Testseite mit Benachrichtigung</button>
 </td>
 
@@ -25,9 +25,9 @@ navigationManager
 
 @{ 
 
-    void editEntry(int id)
+    void EntryLesson(int id)
     {
-        string uri = $"Edit/{id}";
+        string uri = $"Lesson/{id}";
         navManager.NavigateTo(uri);
     }
 
