@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using SEIIApp.Server.Data;
 using System.Linq;
 
 namespace SEIIApp.Server {
@@ -21,6 +23,7 @@ namespace SEIIApp.Server {
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
