@@ -1,0 +1,27 @@
+﻿@page "/Messages"
+
+@inject NavigationManager navManager
+@inject IJSRuntime jsRuntime
+@inject HttpClient http
+
+<h3>Here are your current messages</h3>
+
+@*//TODO: Alle Nachrichten auflisten. Optionen löschen und antworten. Anzeigen ungelesener Nachrichten*@
+
+
+@*@foreach (var m in messages) //TODO: Wie kann ich auf alle Messages für diesen User zugreifen
+{
+<div class="message">
+    From: @m.senderName  </br>
+    Received: @m.messageDateTime </br>
+    @Model.messageText
+    <button>Toggle read/unread</button>
+    <button>Reply</button>
+    <button>Delete from my list</button>
+</div>
+}*@
+
+@code {
+    //var Message m1 = new Message();
+
+}

@@ -67,6 +67,36 @@ a, .btn-link {
 }
 /*----------------------------------------*/
 
+/*-----------   HELPING HAND IN LESSONS ------------*/
+
+
+.btn-add-helper {
+    height: 65px;
+    width: 65px;
+    position: relative;
+    margin: auto;
+    transition: 0.5s;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 60px;
+    background-color: rgba(120,120,120,1);
+}
+
+.btn-add-helper:hover {
+    background-color: lightblue;
+    border-color: rgba(0, 0, 0, 0);
+
+}
+    
+.btn-add-helper:active {
+    background-color: darkgreen;
+}
+
+
+
+
+
+
+
 /*------------- User-Button --------------*/
 .createProfile {
     float: right;
