@@ -4,15 +4,31 @@
 @inject IJSRuntime jsRuntime
 @inject HttpClient http
 
-    <div>
-        <img src="~/user1.png" alt="user1" />
-        <img src="~/user2.png" alt="user2"/>
-        @myPicture
-    </div>
+@if (buttonPressed)
+{
+<div>
+    <img src="user1.png" alt="user1" />
+    <p>Selina</p>
+    <img src="user2.png" alt="user2" />
+    <p>Pauline</p>
+</div>
+}
+else
+{
+<div class="row">
+    <img src="user1.png" alt="user1" />
+    <p>Selina</p>
+    <img src="user2.png" alt="user2" />
+    <p>Pauline</p>
+    <img src="user3.png" alt="user3" />
+    <p>Max</p>
+</div>
+}
+
 
 <div class="helpingHand">
     <button type="button" class="btn btn-add-helper" style="@pressedStyle" @onclick="() => addUserToHelpingHands()">
-        <img src="~/hands.png" alt="helping hand"/>
+        <img src="hands.png" alt="helping hand" />
     </button>
 </div>
 
@@ -31,7 +47,7 @@
 
 <div>
     <h2>Reanimation eines Babys</h2>
-    
+
     <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 </div>
 @code {
@@ -42,13 +58,13 @@
     void addUserToHelpingHands()
     {
         buttonPressed = !buttonPressed;
+
         if (buttonPressed)
         {
-            myPicture = "<img src=\"~/user3.png\" />";
             pressedStyle = "background-color:darkgreen;";
-        } else
+        }
+        else
         {
-            myPicture = "";
             pressedStyle = "";
         }
 
