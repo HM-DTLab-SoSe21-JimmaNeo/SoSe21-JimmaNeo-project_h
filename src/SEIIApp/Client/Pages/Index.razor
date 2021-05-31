@@ -4,36 +4,50 @@
 @inject IJSRuntime jsRuntime
 @inject HttpClient http
 
-<h1>Hello, world!</h1>
+<h1>StepUp</h1>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-
-sidenavigation
-<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-    <span class="oi oi-home" aria-hidden="true"></span> Index
-</NavLink>
-
-navigationManager
-<td>
-    <button class="btn btn-secondary" @onclick="() => EntryLesson(1)">Lesson 1</button>
-    <button class="btn btn-secondary" @onclick="() => deleteEntry(1)">Testseite mit Benachrichtigung</button>
-</td>
-
-
+<a class="btn-link" href="http://www.google.de>"Learn and Help!</a>
 
 @{ 
+    var numRequests = 3;
+}
 
-    void EntryLesson(int id)
+<div class="helpingHand">
+    <button type="button" class="btn btn-primary btn-helping-hand" @onclick="() => GotoMessages()">
+        <i class="far-helping-hand far fa-hand-paper">@numRequests</i>
+    </button>
+
+</div>
+
+
+<br />
+<button class="btn btn-secondary" @onclick="() => GotoLesson(1)">Lesson 1 - Einführung</button>
+<br>
+<button class="btn btn-secondary" @onclick="() => GotoLesson(2)">Lesson 2 - Grundlagen der </button>
+<br>
+<button class="btn btn-secondary" @onclick="() => GotoLesson(3)">Lesson 3 - asdfasdf</button>
+<br>
+<button class="btn btn-secondary" @onclick="() => GotoLesson(4)">Lesson 4 - asdfasdfa</button>
+<br>
+<button class="btn btn-secondary" @onclick="() => GotoLesson(5)">Lesson 5 - asdfasdfgfsfdfh</button>
+<br>
+<button class="btn btn-secondary" @onclick="() => GotoLesson(6)">Lesson 6 - asdfghtfds</button>
+<br>
+
+
+
+
+
+@{
+
+    void GotoLesson(int id)
     {
-        string uri = $"Lesson/{id}";
+        string uri = $"lessons/{id}";
         navManager.NavigateTo(uri);
     }
 
-    async void deleteEntry(int id)
+    void GotoMessages()
     {
-        //JS-function
-        bool confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        navManager.NavigateTo("messages");
     }
 }
