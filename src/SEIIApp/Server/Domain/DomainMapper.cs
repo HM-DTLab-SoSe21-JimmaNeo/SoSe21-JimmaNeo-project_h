@@ -28,11 +28,20 @@ namespace SEIIApp.Server.Domain
             CreateMap<ProfilDefinition, ProfilDefinitionDto>();
             CreateMap<ProfilDefinitionDto, ProfilDefinition>();
 
+            CreateMap<ProfilDefinition, ProfilDefinitionDto>();
+            CreateMap<ProfilDefinition, ProfilDefinition>();
+
             CreateMap<LessonDefinition, LessonDefinitionDto>();
             CreateMap<LessonDefinitionDto, LessonDefinition>();
 
+            CreateMap<LessonDefinition, LessonDefinitionDto>();
+            CreateMap<LessonDefinition, LessonDefinition>();
+
             CreateMap<MessageDefinition, MessageDefinitionDto>();
             CreateMap<MessageDefinitionDto, MessageDefinition>();
+
+            CreateMap<MessageDefinition, MessageDefinitionDto>();
+            CreateMap<MessageDefinition, MessageDefinition>();
 
         }
     }
