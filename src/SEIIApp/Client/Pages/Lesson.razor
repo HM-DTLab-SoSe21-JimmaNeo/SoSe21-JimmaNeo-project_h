@@ -1,0 +1,56 @@
+﻿@page "/lessons/1"
+
+@inject NavigationManager navManager
+@inject IJSRuntime jsRuntime
+@inject HttpClient http
+
+    <div>
+        <img src="~/user1.png" alt="user1" />
+        <img src="~/user2.png" alt="user2"/>
+        @myPicture
+    </div>
+
+<div class="helpingHand">
+    <button type="button" class="btn btn-add-helper" style="@pressedStyle" @onclick="() => addUserToHelpingHands()">
+        <img src="~/hands.png" alt="helping hand"/>
+    </button>
+</div>
+
+
+
+
+<h1>Lesson 1 - Einführung</h1>
+
+@*<div
+        <video width="320" height="240" controls>
+            <source src="https://www.youtube.com/watch?v=vKny9uU8UmA">
+        </video>
+    </div>*@
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vKny9uU8UmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div>
+    <h2>Reanimation eines Babys</h2>
+    
+    <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+</div>
+@code {
+    string myPicture = "";
+    bool buttonPressed = false;
+    string pressedStyle = "";
+
+    void addUserToHelpingHands()
+    {
+        buttonPressed = !buttonPressed;
+        if (buttonPressed)
+        {
+            myPicture = "<img src=\"~/user3.png\" />";
+            pressedStyle = "background-color:darkgreen;";
+        } else
+        {
+            myPicture = "";
+            pressedStyle = "";
+        }
+
+    }
+}

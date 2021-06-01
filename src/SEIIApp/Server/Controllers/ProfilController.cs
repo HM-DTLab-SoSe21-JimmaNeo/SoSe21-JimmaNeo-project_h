@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using SEIIApp.Server.Domain;
+using SEIIApp.Server.Services;
+using SEIIApp.Shared.DomainTdo;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SEIIApp.Server.Data;
 using SEIIApp.Shared;
 using System;
@@ -8,56 +13,112 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace SEIIApp.Server.Controllers
 {
-    [Route("api/[controller]")]
+
+
     [ApiController]
-    public class ProfilController : ControllerBase
+    [Route("api/profildefinitions")]
+    public class ProfilDefinitionController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
-        public ProfilController(ApplicationDBContext context)
+
+        private ProfilDefinitionService ProfilDefinitionService { get; set; }
+        private IMapper Mapper { get; set; }
+
+        public ProfilDefinitionController(ProfilDefinitionService profilDefinitionService, IMapper mapper)
         {
-            this._context = context;
+            this.ProfilDefinitionService = profilDefinitionService;
+            this.Mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var prof = await _context.Profile.ToListAsync();
-            return Ok(prof);
-        }
-
+        /// <summary>
+        /// Return the profil with the given id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfil([FromRoute] int id)
         {
-            var prof = await _context.Profile.FirstOrDefaultAsync(a => a.Id == id);
-            return Ok(prof);
+            var profil = ProfilDefinitionService.GetProfilWithId(id);
+            if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
+
+            var mappedProfil = Mapper.Map<ProfilDefinitionDto>(profil);
+            return Ok(mappedProfil);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post(Profil profil)
+        /// <summary>
+        /// Returns all quizzes names and ids.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        //public ActionResult<ProfilDefinitionBaseDto[]> GetAllQuizes()
+        //{
+        //    var quizzes = ProfilDefinitionService.GetAllProfiles();
+        //    var mappedQuizzes = Mapper.Map<ProfilDefinitionBaseDto[]>(quizzes);
+        //    return Ok(mappedQuizzes);
+        //}
+        public ActionResult<ProfilDefinitionDto[]> GetAllProfile()
         {
-            _context.Add(profil);
-            await _context.SaveChangesAsync();
-            return Ok(profil.Id);
+            var profile = ProfilDefinitionService.GetAllProfile();
+            var mappedProfile = Mapper.Map<ProfilDefinitionDto[]>(profile);
+            return Ok(mappedProfile);
         }
 
+        /// <summary>
+        /// Adds or updates a profil definition.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Put(Profil profil)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<ProfilDefinitionDto> AddOrUpdateProfil([FromBody] ProfilDefinitionDto model)
         {
-            _context.Entry(profil).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            if (ModelState.IsValid)
+            {
+                //Das Modell ist dann valide, wenn es die per Annotation definierten
+                //Eigenschaften erfüllt, ansonsten werden wir einen Fehler zurückliefern.
+
+                //Wir "mappen" das gelieferte Modell zu unserer lokalen Domänen-Repräsentation
+                var mappedModel = Mapper.Map<ProfilDefinition>(model);
+
+                if (model.Id == 0)
+                { //add
+                    mappedModel = ProfilDefinitionService.AddProfil(mappedModel);
+                }
+                else
+                { //update
+                    mappedModel = ProfilDefinitionService.UpdateProfil(mappedModel);
+                }
+
+                //Wir liefern das geänderte Objekt auch wieder zurück
+                model = Mapper.Map<ProfilDefinitionDto>(mappedModel);
+                return Ok(model);
+            }
+            return BadRequest(ModelState);
         }
 
+        /// <summary>
+        /// Removes a profil definition.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult DeleteProfil([FromRoute] int id)
         {
-            var prof = new Profil { Id = id };
-            _context.Remove(prof);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+            var profil = ProfilDefinitionService.GetProfilWithId(id);
+            if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
 
+            ProfilDefinitionService.RemoveProfil(profil);
+            return Ok();
+        }
     }
 }
