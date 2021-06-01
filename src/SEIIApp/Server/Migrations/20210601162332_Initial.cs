@@ -10,15 +10,16 @@ namespace SEIIApp.Server.Migrations
                 name: "LessonDefinitions",
                 columns: table => new
                 {
-                    lessonNumber = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    lessonNumber = table.Column<int>(type: "int", nullable: false),
                     lessonTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     videoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     text = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LessonDefinitions", x => x.lessonNumber);
+                    table.PrimaryKey("PK_LessonDefinitions", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,6 +55,12 @@ namespace SEIIApp.Server.Migrations
                 {
                     table.PrimaryKey("PK_ProfilDefinitions", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LessonDefinitions_lessonNumber",
+                table: "LessonDefinitions",
+                column: "lessonNumber",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

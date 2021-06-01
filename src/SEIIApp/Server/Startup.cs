@@ -73,6 +73,7 @@ namespace SEIIApp.Server
             //Daten in die Datenbank hinzuzufügen oder zu ändern.
             //Aber auch irgendwelche anderen Arten von Berechnungen.
             services.AddScoped<Services.ProfilDefinitionService>();
+            services.AddScoped<Services.LessonDefinitionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,7 +90,7 @@ namespace SEIIApp.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            //Swagger Part II
+            //Swagger Part II 
             //Hier legen wir fest, dass wir die generierte API-Spezifikation als 
             //Webseite verwenden möchten. Hier verweisen wir auch auf die 
             //genierte Datei im OpenAPI-Format

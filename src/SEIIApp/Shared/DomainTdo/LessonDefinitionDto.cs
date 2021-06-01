@@ -8,6 +8,8 @@ namespace SEIIApp.Shared.DomainTdo
 {
     public class LessonDefinitionDto
     {
+       
+        public int id { get; set; }
         public int lessonNumber { get; set; }
         public string lessonTitle { get; set; }
         public string videoUrl { get; set; }

@@ -20,10 +20,13 @@ namespace SEIIApp.Server.Migrations
 
             modelBuilder.Entity("SEIIApp.Server.Domain.LessonDefinition", b =>
                 {
-                    b.Property<int>("lessonNumber")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("lessonNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("lessonTitle")
                         .HasColumnType("nvarchar(max)");
@@ -34,7 +37,10 @@ namespace SEIIApp.Server.Migrations
                     b.Property<string>("videoUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("lessonNumber");
+                    b.HasKey("id");
+
+                    b.HasIndex("lessonNumber")
+                        .IsUnique();
 
                     b.ToTable("LessonDefinitions");
                 });

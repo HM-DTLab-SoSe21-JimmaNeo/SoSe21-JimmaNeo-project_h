@@ -9,7 +9,7 @@ using SEIIApp.Server.Data;
 namespace SEIIApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20210531185503_Initial")]
+    [Migration("20210601162332_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,10 +22,13 @@ namespace SEIIApp.Server.Migrations
 
             modelBuilder.Entity("SEIIApp.Server.Domain.LessonDefinition", b =>
                 {
-                    b.Property<int>("lessonNumber")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("lessonNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("lessonTitle")
                         .HasColumnType("nvarchar(max)");
@@ -36,7 +39,10 @@ namespace SEIIApp.Server.Migrations
                     b.Property<string>("videoUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("lessonNumber");
+                    b.HasKey("id");
+
+                    b.HasIndex("lessonNumber")
+                        .IsUnique();
 
                     b.ToTable("LessonDefinitions");
                 });
