@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SEIIApp.Server</name>
+    </assembly>
+    <members>
+        <member name="M:SEIIApp.Server.Controllers.LessonDefinitionController.GetLesson(System.Int32)">
+            <summary>
+            Return the lesson with the given id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.LessonDefinitionController.GetAllLessons">
+            <summary>
+            Returns all lessons names and ids.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.LessonDefinitionController.AddOrUpdateLesson(SEIIApp.Shared.DomainTdo.LessonDefinitionDto)">
+            <summary>
+            Adds or updates a lesson definition.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.LessonDefinitionController.DeleteLesson(System.Int32)">
+            <summary>
+            Removes a lesson definition.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetProfil(System.Int32)">
+            <summary>
+            Return the profil with the given id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetAllProfile">
+            <summary>
+            Returns all profiles names and ids.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.AddOrUpdateProfil(SEIIApp.Shared.DomainTdo.ProfilDefinitionDto)">
+            <summary>
+            Adds or updates a profil definition.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.DeleteProfil(System.Int32)">
+            <summary>
+            Removes a profil definition.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonDefinitionService.GetAllLessons">
+            <summary>
+            Returns all quiz definitions. Includes also questions and their answers.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonDefinitionService.GetLessonWithid(System.Int32)">
+            <summary>
+            Returns the quiz with the given id. Includes also questions and their answers.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonDefinitionService.AddLesson(SEIIApp.Server.Domain.LessonDefinition)">
+            <summary>
+            Adds a quiz.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonDefinitionService.UpdateLesson(SEIIApp.Server.Domain.LessonDefinition)">
+            <summary>
+            Updates a quiz.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonDefinitionService.RemoveLesson(SEIIApp.Server.Domain.LessonDefinition)">
+            <summary>
+            Removes a lesson and all dependencies.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.ProfilDefinitionService.GetAllProfile">
+            <summary>
+            Returns all quiz definitions. Includes also questions and their answers.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.ProfilDefinitionService.GetProfilWithId(System.Int32)">
+            <summary>
+            Returns the quiz with the given id. Includes also questions and their answers.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.ProfilDefinitionService.AddProfil(SEIIApp.Server.Domain.ProfilDefinition)">
+            <summary>
+            Adds a quiz.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.ProfilDefinitionService.UpdateProfil(SEIIApp.Server.Domain.ProfilDefinition)">
+            <summary>
+            Updates a quiz.
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.ProfilDefinitionService.RemoveProfil(SEIIApp.Server.Domain.ProfilDefinition)">
+            <summary>
+            Removes a quiz and all dependencies.
+            </summary>
+        </member>
+    </members>
+</doc>
