@@ -9,7 +9,7 @@ using SEIIApp.Server.Data;
 namespace SEIIApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20210601162332_Initial")]
+    [Migration("20210603201747_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

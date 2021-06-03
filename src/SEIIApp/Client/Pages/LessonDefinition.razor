@@ -7,8 +7,9 @@
     <h3>@(ExistingLesson.lessonTitle)</h3>
 
     <div>
+        <iframe width="560" height="315" src="@(ExistingLesson.videoUrl)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br />
         @(ExistingLesson.text)
-        <img src="@(ExistingLesson.videoUrl)"/>
     </div>
 }
 

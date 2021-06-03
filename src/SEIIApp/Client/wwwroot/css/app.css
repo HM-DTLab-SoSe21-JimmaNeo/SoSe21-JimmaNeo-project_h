@@ -5,13 +5,20 @@
     --first-color: #1A73E8;
     --input-color: #80868B;
     --border-color: #DADCDA;
-    --body-font: 'Roboto', sans-serif;
+    --body-font: 'Segoe UI', sans-serif;
     --normal-font-size: 1rem;
     --small-font-size: .75rem;
 }
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+
+.h1-jul {
+    /*color: rgb(12 18 79);*/
+    color: rgb(255 0 0);
+    font-family: "Segoe UI";
 }
 
 a, .btn-link {
@@ -22,6 +29,23 @@ a, .btn-link {
     color: #fff;
     background-color: #fff;
     border-color: #1861ac;
+}
+
+.btn-julia {
+    background-color: darkslategrey;
+    width: 400px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px 10px 10px 10px;
+}
+
+.btn-julia:hover {
+    background-color: lightsteelblue;
+    
 }
 
 /*all adjustments for selfmade buttons*/
