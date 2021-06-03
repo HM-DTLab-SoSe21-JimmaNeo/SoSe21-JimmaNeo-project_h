@@ -1,0 +1,33 @@
+﻿@page "/lesson/{LessonId:int}"
+
+@inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
+
+@if (ExistingLesson != null)
+{
+    <h3>@(ExistingLesson.lessonTitle)</h3>
+
+    <div>
+        @(ExistingLesson.text)
+        <img src="@(ExistingLesson.videoUrl)"/>
+    </div>
+}
+
+
+
+
+@code {
+    [Parameter]
+    public int LessonId { get; set; }
+
+    private SEIIApp.Shared.DomainTdo.LessonDefinitionDto ExistingLesson { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (LessonId != 0)
+        {
+            ExistingLesson = await LessonDefinitionService.GetLessonById(LessonId);
+        }
+        await base.OnParametersSetAsync();
+
+    }
+}

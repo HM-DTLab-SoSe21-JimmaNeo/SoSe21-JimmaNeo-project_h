@@ -1,53 +1,43 @@
 ﻿@page "/"
-
-@inject NavigationManager navManager
-@inject IJSRuntime jsRuntime
-@inject HttpClient http
+@inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
+@inject NavigationManager navigation
 
 <h1>StepUp</h1>
 
-<a class="btn-link" href="http://www.google.de>"Learn and Help!</a>
+<a class="btn-link" href="http://www.google.de>" Learn and Help!</a>
 
-@{ 
+@{
     var numRequests = 3;
 }
 
-<div class="helpingHand">
-    <button type="button" class="btn btn-primary btn-helping-hand" @onclick="() => GotoMessages()">
-        <i class="far-helping-hand far fa-hand-paper">@numRequests</i>
-    </button>
 
-</div>
-
-
-<br />
-<button class="btn btn-secondary" @onclick="() => GotoLesson(1)">Lesson 1 - Einführung</button>
-<br>
-<button class="btn btn-secondary" @onclick="() => GotoLesson(2)">Lesson 2 - Grundlagen der </button>
-<br>
-<button class="btn btn-secondary" @onclick="() => GotoLesson(3)">Lesson 3 - asdfasdf</button>
-<br>
-<button class="btn btn-secondary" @onclick="() => GotoLesson(4)">Lesson 4 - asdfasdfa</button>
-<br>
-<button class="btn btn-secondary" @onclick="() => GotoLesson(5)">Lesson 5 - asdfasdfgfsfdfh</button>
-<br>
-<button class="btn btn-secondary" @onclick="() => GotoLesson(6)">Lesson 6 - asdfghtfds</button>
-<br>
-
-
-
-
-
-@{
-
-    void GotoLesson(int id)
+@if (Lessons?.Length > 0)
+{
+    @foreach (var lesson in Lessons)
     {
-        string uri = $"lessons/{id}";
-        navManager.NavigateTo(uri);
+        <div class="">
+            <button class="btn btn-primary" @onclick="() => NavigateToLesson(lesson)">
+                @(lesson.lessonTitle)
+            </button>
+        </div>
+    }
+}
+
+
+
+
+
+@code {
+    public SEIIApp.Shared.DomainTdo.LessonDefinitionDto[] Lessons { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Lessons = await LessonDefinitionService.GetLessonOverview();
+        await base.OnParametersSetAsync();
     }
 
-    void GotoMessages()
+    private void NavigateToLesson(SEIIApp.Shared.DomainTdo.LessonDefinitionDto lesson)
     {
-        navManager.NavigateTo("messages");
+        navigation.NavigateTo("/lesson/" + lesson.lessonNumber);
     }
 }
