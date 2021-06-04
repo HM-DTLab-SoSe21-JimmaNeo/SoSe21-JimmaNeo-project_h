@@ -15,10 +15,8 @@ html, body {
 }
 
 
-.h1-jul {
-    /*color: rgb(12 18 79);*/
-    color: rgb(255 0 0);
-    font-family: "Segoe UI";
+h1 {
+    color: rgb(7, 88, 50);
 }
 
 a, .btn-link {
@@ -45,26 +43,63 @@ a, .btn-link {
 
 .btn-julia:hover {
     background-color: lightsteelblue;
-    
 }
 
+.row {
+    float:right;
+}
+.user-icon {
+    float:left;
+    margin-left:10px;
+    border-style:none;
+
+}
+
+.icon{
+    height:65px;
+    
+    border-radius:50%;
+}
+
+.name {
+    color:darkslategrey;
+    font-size:small;
+    text-align:center;
+}
+
+.video-teamh {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.lesson-number-teamh {
+    padding: 10px 10px 10px 10px;
+    margin-right: 15px;
+    border-radius: 50%;
+    border-color: black;
+    background-color: darkslategrey;
+}
 /*all adjustments for selfmade buttons*/
 /*--------- Helping-Hand-Button ----------*/
 .helpingHand {
     float: right;
     padding-bottom: 10px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 40px;
 }
 
 .btn-helping-hand {
     height: 65px;
-    width: 65px;
+    /*width: 65px;*/
     position: relative;
     margin: auto;
     transition: 0.5s;
     border: 3px solid rgba(0, 0, 0, 0);
-    border-radius: 60px;
+    color:darkgreen;
+}
+
+.helping-hand-teamh {
+    
 }
 
 .btn-helping-hand:hover {
@@ -74,7 +109,7 @@ a, .btn-link {
 
 .btn-helping-hand:focus {
     background-color: rgba(124, 252, 0, 0.50);
-    border-color: lawngreen;
+    border-color: darkgreen;
 }
 
 .btn-helping-hand:focus > .far-helping-hand {
@@ -93,22 +128,22 @@ a, .btn-link {
 
 /*-----------   HELPING HAND IN LESSONS ------------*/
 
+.description {
+    font-size:small;
+}
 
 .btn-add-helper {
-    height: 65px;
-    width: 65px;
     position: relative;
-    margin: auto;
     transition: 0.5s;
-    border: 3px solid rgba(0, 0, 0, 0);
-    border-radius: 60px;
-    background-color: rgba(120,120,120,1);
+    border-style:none;
+    margin-left:50px;
+    height:65px;
 }
 
 .btn-add-helper:hover {
     background-color: lightblue;
     border-color: rgba(0, 0, 0, 0);
-
+    border-width:5px;
 }
     
 .btn-add-helper:active {
@@ -256,6 +291,11 @@ a, .btn-link {
     font-size: var(--small-font-size);
     font-weight: 500;
     z-index: 10;
+}
+
+.num-requests{
+    color: darkslategrey;
+    font-size:x-large;
 }
 
 .form__input:focus {

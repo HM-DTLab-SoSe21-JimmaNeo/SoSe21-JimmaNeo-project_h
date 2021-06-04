@@ -1,16 +1,94 @@
 ﻿@page "/lesson/{LessonId:int}"
 
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
+@inject NavigationManager navigation
+@*
+    <div class="">
+        <button class="btn btn-dark" @onclick="() => AddUserToHelpingHands()">
+            Helping Hand
+        </button>
+        Click to mark yourself as helping hand!
+    </div>
+
+    <div class="">
+        <button class="btn btn-success" @onclick="() => AddUserToHelpingHands()">
+            Helping Hand
+        </button>
+        Click to mark yourself as helping hand!
+    </div>
+*@
+
+<div class="helpingHand">
+
+    @if (buttonPressed)
+    {
+        <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
+            <img src="helpingbutton_active.png" alt="helping hands" height="65px;"/>
+        </button>
+        <br />
+        <br />
+        <br />
+        <p>         You are a helping hand!</p>
+    }
+    else
+    {
+        <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
+            <img src="helpingbutton_deactive.png" alt="no helping hand yet" height="65px;"/>
+        </button>
+        <br />
+        <br />
+        <br />
+        <p>         Click to become a helping hand!</p>
+    }
+</div>
+
+
+@if (!buttonPressed)
+{
+    <div class="row">
+        <button class="user-icon" @onclick="() => sendMessageTo()">
+            <img src="Nuru.png" alt="Nuru" class="icon" />
+            <br />
+            <p class="name">Nuru</p>
+        </button>
+        <button class="user-icon">
+            <img src="Salim.png" alt="Salim" class="icon" />
+            <br />
+            <p class="name">Salim</p>
+        </button>
+    </div>
+}
+else
+{
+    <div class="row">
+        <button class="user-icon" @onclick="() => addUserToHelpingHands()">
+            <img src="Nuru.png" alt="Nuru" class="icon" />
+            <br />
+            <p class="name">Nuru</p>
+        </button>
+        <button class="user-icon">
+            <img src="Salim.png" alt="Salim" class="icon" />
+            <br />
+            <p class="name">Salim</p>
+        </button>
+        <button class="user-icon">
+            <img src="Kamali.png" alt="Kamali" class="icon" />
+            <br />
+            <p class="name">Kamali</p>
+        </button>
+    </div>
+}
 
 @if (ExistingLesson != null)
 {
-    <h3>@(ExistingLesson.lessonTitle)</h3>
+    <h1 class="h1-teamh" style="color: rgb(7, 88, 50);">@(ExistingLesson.lessonTitle)</h1>
 
-    <div>
+    <div class="video-teamh">
+        <br /><br />
         <iframe width="560" height="315" src="@(ExistingLesson.videoUrl)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br />
-        @(ExistingLesson.text)
+        <br /><br />
     </div>
+    @(ExistingLesson.text)
 }
 
 
@@ -30,5 +108,21 @@
         }
         await base.OnParametersSetAsync();
 
+    }
+
+    string myPicture = "";
+    bool buttonPressed = false;
+    string pressedStyle = "";
+
+    void addUserToHelpingHands()
+    {
+        buttonPressed = !buttonPressed;
+
+    }
+
+    void sendMessageTo()
+    {
+
+        navigation.NavigateTo("/MessageToNuru/");
     }
 }

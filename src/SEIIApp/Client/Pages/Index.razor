@@ -2,40 +2,41 @@
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject NavigationManager navigation
 
-<h1 class="h1-jul">StepUp</h1>
+<h1 style="color: rgb(7, 88, 50);">StepUp</h1>
 
 <h2>Learn and Help!</h2>
 
-@{
-    var numRequests = 3;
-}
-
+@{ var numRequests = 3; }
 <div class="helpingHand">
-    <button type="button" class="btn btn-primary btn-helping-hand" @onclick="() => GotoMessagePage()">
-        <i class="far-helping-hand far fa-hand-paper"></i>
-        @numRequests
+
+   
+    
+    <button type="button" class="btn btn-helping-hand" @onclick="() => goToMessages()">
+        <img src="helpingbutton2.png" alt="helping hands" height="65px;"/>
+        <span class="num-requests">@numRequests</span>
     </button>
+        
+        
+    
+    
 </div>
 
 @if (Lessons?.Length > 0)
 {
-    @foreach (var lesson in Lessons)
-    {
+@foreach (var lesson in Lessons)
+{
 <div class="">
-    @*<button class="btn btn-dark" style="width:400px; border-radius:20px; padding:10px 10px 10px 10px; margin-bottom:10px;" @onclick="() => NavigateToLesson(lesson)">
-    *@    <button class="btn btn-dark btn-julia" @onclick="() => NavigateToLesson(lesson)">
-    @(lesson.lessonNumber) @(lesson.lessonTitle)
+    <button class="btn btn-primary btn-julia" @onclick="() => NavigateToLesson(lesson)">
+        @(lesson.lessonNumber) 
+        @(lesson.lessonTitle)
     </button>
-</div>
-    }
-}
+</div>}}
 
 
 
 
 
-@code {
-    public SEIIApp.Shared.DomainTdo.LessonDefinitionDto[] Lessons { get; set; }
+@code { public SEIIApp.Shared.DomainTdo.LessonDefinitionDto[] Lessons { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -48,8 +49,8 @@
         navigation.NavigateTo("/lesson/" + lesson.lessonNumber);
     }
 
-    private void GotoMessagePage()
+    private void goToMessages()
     {
         navigation.NavigateTo("/Messages/");
     }
-}
+    }
