@@ -40,7 +40,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns all quiz definitions. Includes also questions and their answers.
+        /// Returns all lesson definitions.
         /// </summary>
         public LessonDefinition[] GetAllLessons()
         {
@@ -48,7 +48,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns the quiz with the given id. Includes also questions and their answers.
+        /// Returns the lesson with the given id.
         /// </summary>
         public LessonDefinition GetLessonWithid(int id)
         {
@@ -57,7 +57,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Adds a quiz.
+        /// Adds a lesson.
         /// </summary>
 
         public LessonDefinition AddLesson(LessonDefinition lesson)
@@ -75,7 +75,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Updates a quiz.
+        /// Updates a lesson.
         /// </summary>
         public LessonDefinition UpdateLesson(LessonDefinition lesson)
         {

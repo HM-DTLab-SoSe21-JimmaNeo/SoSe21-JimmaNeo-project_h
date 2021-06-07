@@ -40,7 +40,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns all quiz definitions. Includes also questions and their answers.
+        /// Returns all lessonprofil definitions. 
         /// </summary>
         public LessonProfilDefinition[] GetAllLessonsProfil()
         {
@@ -48,7 +48,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns the quiz with the given id. Includes also questions and their answers.
+        /// Returns the lessonprofil with the given id.
         /// </summary>
         public LessonProfilDefinition GetLessonProfilWithid(int lessonProfilId)
         {
@@ -57,7 +57,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Adds a quiz.
+        /// Adds a lessonprofil.
         /// </summary>
 
         public LessonProfilDefinition AddLessonProfil(LessonProfilDefinition lessonProfil)
@@ -75,11 +75,11 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Updates a quiz.
+        /// Updates a lessonprofil.
         /// </summary>
         public LessonProfilDefinition UpdateLessonProfil(LessonProfilDefinition lessonProfil)
         {
-            //Wenn wir ein Lesson aktualisieren, dann fragen wir das existierende Lesson ab und 
+            //Wenn wir ein LessonPofil aktualisieren, dann fragen wir das existierende Lesson ab und 
             //Mappen die Änderung hinein.
 
             var existingLessonProfil = GetLessonProfilWithid(lessonProfil.lessonProfilId);
@@ -92,7 +92,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Removes a lesson and all dependencies.
+        /// Removes a lessonprofil and all dependencies.
         /// </summary>
         public void RemoveLessonProfil(LessonProfilDefinition lessonProfil)
         {

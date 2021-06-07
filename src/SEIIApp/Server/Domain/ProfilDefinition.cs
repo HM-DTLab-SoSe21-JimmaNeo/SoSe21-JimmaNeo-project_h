@@ -15,6 +15,7 @@ namespace SEIIApp.Server.Domain
         public string Email { get; set; }
         public string Description { get; set; }
         public string Passwort { get; set; }
+        public string UrlImage { get; set; }
         public DateTime CreateProfile { get; set; }
 
         public List<LessonProfilDefinition> LessonProfilDefinition { get; set; }

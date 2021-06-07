@@ -37,6 +37,8 @@ namespace SEIIApp.Shared.DomainTdo
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
+        public string UrlImage { get; set; }
+
         public DateTime CreateProfile { get; set; }
 
     }
