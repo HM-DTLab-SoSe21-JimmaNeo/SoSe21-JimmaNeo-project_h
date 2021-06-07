@@ -11,6 +11,8 @@ using System.IO;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using SEIIApp.Server.Data;
+using Pomelo.EntityFrameworkCore.MySql;
+
 
 namespace SEIIApp.Server
 {
@@ -30,7 +32,16 @@ namespace SEIIApp.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+           //  services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //   services.AddTransient<ApplicationDBContext>(_ => new ApplicationDBContext(Configuration["ConnectionStrings:DefaultConnection"]));
+           // services.AddDbContext<ApplicationDBContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddDbContextPool<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+           // services.AddDbContext<ApplicationDBContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 21))));
+           string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<ApplicationDBContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+
 
             //Swagger -- OpenAPI UI
             //Diese Zeilen fügen die Verwendung einer generierten API-Beschreibung
@@ -74,6 +85,7 @@ namespace SEIIApp.Server
             //Aber auch irgendwelche anderen Arten von Berechnungen.
             services.AddScoped<Services.ProfilDefinitionService>();
             services.AddScoped<Services.LessonDefinitionService>();
+            services.AddScoped<Services.LessonProfilDefinitionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

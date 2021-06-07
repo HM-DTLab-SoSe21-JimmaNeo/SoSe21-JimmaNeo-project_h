@@ -19,35 +19,35 @@ namespace SEIIApp.Server.Controllers
 
 
     [ApiController]
-    [Route("api/lessondefinitions")]
-    public class LessonDefinitionController : ControllerBase
+    [Route("api/lessonprofildefinitions")]
+    public class LessonProfilDefinitionController : ControllerBase
     {
 
-        private LessonDefinitionService LessonDefinitionService { get; set; }
+        private LessonProfilDefinitionService LessonProfilDefinitionService { get; set; }
         private IMapper Mapper { get; set; }
 
-        public LessonDefinitionController(LessonDefinitionService lessonDefinitionService, IMapper mapper)
+        public LessonProfilDefinitionController(LessonProfilDefinitionService lessonProfilDefinitionService, IMapper mapper)
         {
-            this.LessonDefinitionService = lessonDefinitionService;
+            this.LessonProfilDefinitionService = lessonProfilDefinitionService;
             this.Mapper = mapper;
         }
 
         /// <summary>
         /// Return the lesson with the given id.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="lessonProfilId"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{lessonProfilId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Shared.DomainTdo.LessonDefinitionDto> GetLesson([FromRoute] int id)
+        public ActionResult<Shared.DomainTdo.LessonProfilDefinitionDto> GetLessonProfil([FromRoute] int lessonProfilId)
         {
-            var lesson = LessonDefinitionService.GetLessonWithid(id);
-            if (lesson == null) return StatusCode(StatusCodes.Status404NotFound);
+            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithid(lessonProfilId);
+            if (lessonProfil == null) return StatusCode(StatusCodes.Status404NotFound);
 
-            var mappedLesson = Mapper.Map<LessonDefinitionDto>(lesson);
-            return Ok(mappedLesson);
+            var mappedLessonProfil = Mapper.Map<LessonProfilDefinitionDto>(lessonProfil);
+            return Ok(mappedLessonProfil);
         }
 
         /// <summary>
@@ -63,11 +63,11 @@ namespace SEIIApp.Server.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<LessonDefinitionDto[]> GetAllLessons()
+        public ActionResult<LessonProfilDefinitionDto[]> GetAllLessonsProfil()
         {
-            var lessons = LessonDefinitionService.GetAllLessons();
-            var mappedLessons = Mapper.Map<LessonDefinitionDto[]>(lessons);
-            return Ok(mappedLessons);
+            var lessonsProfil = LessonProfilDefinitionService.GetAllLessonsProfil();
+            var mappedLessonsProfil = Mapper.Map<LessonProfilDefinitionDto[]>(lessonsProfil);
+            return Ok(mappedLessonsProfil);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace SEIIApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public ActionResult<LessonDefinitionDto> AddOrUpdateLessonProfil([FromBody] LessonDefinitionDto model)
+        public ActionResult<LessonProfilDefinitionDto> AddOrUpdateLessonProfil([FromBody] LessonProfilDefinitionDto model)
         {
             if (ModelState.IsValid) 
             {
@@ -87,14 +87,14 @@ namespace SEIIApp.Server.Controllers
                 //Eigenschaften erfüllt, ansonsten werden wir einen Fehler zurückliefern.
 
                 //Wir "mappen" das gelieferte Modell zu unserer lokalen Domänen-Repräsentation
-                var mappedModel = Mapper.Map<LessonDefinition>(model);
+                var mappedModel = Mapper.Map<LessonProfilDefinition>(model);
 
                
 
-                if (model.id == 0)
+                if (model.LessonProfilId == 0)
                 { //add
                   try { 
-                        mappedModel = LessonDefinitionService.AddLesson(mappedModel);
+                        mappedModel = LessonProfilDefinitionService.AddLessonProfil(mappedModel);
                     }catch
                     { 
                     return Conflict(ModelState);
@@ -102,12 +102,12 @@ namespace SEIIApp.Server.Controllers
                     }
                 else
                 { //update
-                    mappedModel = LessonDefinitionService.UpdateLesson(mappedModel);
+                    mappedModel = LessonProfilDefinitionService.UpdateLessonProfil(mappedModel);
                 }
 
                 //Wir liefern das geänderte Objekt auch wieder zurück
                 
-                model = Mapper.Map<LessonDefinitionDto>(mappedModel);
+                model = Mapper.Map<LessonProfilDefinitionDto>(mappedModel);
                 return Ok(model);
             }
             return BadRequest(ModelState);
@@ -116,18 +116,18 @@ namespace SEIIApp.Server.Controllers
         /// <summary>
         /// Removes a lesson definition.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="lessonProfilId"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{lessonProfilId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult DeleteLesson([FromRoute] int id)
+        public ActionResult DeleteLessonProfil([FromRoute] int lessonProfilId)
         {
-            var lesson = LessonDefinitionService.GetLessonWithid(id);
-            if (lesson == null) return StatusCode(StatusCodes.Status404NotFound);
+            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithid(lessonProfilId);
+            if (lessonProfil == null) return StatusCode(StatusCodes.Status404NotFound);
 
-            LessonDefinitionService.RemoveLesson(lesson);
+            LessonProfilDefinitionService.RemoveLessonProfil(lessonProfil);
             return Ok();
         }
     }
