@@ -2,35 +2,29 @@
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject NavigationManager navigation
 
-<h1 class="display-4 step-up">StepUp</h1>
+<h1 class="display-3 step-up">StepUp</h1>
 
-<h2 class="step-up">Learn and Help!</h2>
+<h2 class="display-4">Learn and Help!</h2>
 
 @{ var numRequests = 3; }
-<div class="helpingHand">
-
-   
-    
-    <button type="button" class="step-up-color envelope float-right" @onclick="() => goToMessages()">
-        <i class="fas fa-envelope"></i>
-        <span class="num-requests">@numRequests</span>
+<div class="float-right">
+    <button type="button" class="btn btn-primary" @onclick="() => goToMessages()">
+        <i class="fas fa-envelope envelope"></i>  <span class="num-requests">@numRequests</span>
     </button>
-        
-        
-    
-    
 </div>
 
 @if (Lessons?.Length > 0)
 {
-@foreach (var lesson in Lessons)
-{
-<div class="">
-    <button class="btn btn-primary btn-julia" @onclick="() => NavigateToLesson(lesson)">
-        @(lesson.lessonNumber) 
-        @(lesson.lessonTitle)
-    </button>
-</div>}}
+    @foreach (var lesson in Lessons)
+    {
+    <div class="">
+        <button class="btn btn-primary btn-julia" @onclick="() => NavigateToLesson(lesson)">
+            @(lesson.lessonNumber) 
+            @(lesson.lessonTitle)
+        </button>
+    </div>
+    }
+}
 
 
 

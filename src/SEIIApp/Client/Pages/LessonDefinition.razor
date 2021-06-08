@@ -2,28 +2,13 @@
 
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject NavigationManager navigation
-@*
-    <div class="">
-        <button class="btn btn-dark" @onclick="() => AddUserToHelpingHands()">
-            Helping Hand
-        </button>
-        Click to mark yourself as helping hand!
-    </div>
-
-    <div class="">
-        <button class="btn btn-success" @onclick="() => AddUserToHelpingHands()">
-            Helping Hand
-        </button>
-        Click to mark yourself as helping hand!
-    </div>
-*@
-
-<div class="helpingHand">
+@* ------------- Display Helping Hands on the top right  -------------------*@
+<div class="float-right">
 
     @if (buttonPressed)
     {
         <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
-            <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65px;"/>
+            <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65px;" />
         </button>
         <br />
         <br />
@@ -33,7 +18,7 @@
     else
     {
         <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
-            <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65px;"/>
+            <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65px;" />
         </button>
         <br />
         <br />
@@ -42,17 +27,17 @@
     }
 </div>
 
-
+@* ------------- Display Helpers on the top right  -------------------*@
 @if (!buttonPressed)
 {
     <div class="row">
-        <button class="user-icon" @onclick="() => sendMessageTo()">
-            <img src="css\images\Nuru.png" alt="Nuru" class="icon" />
+        <button class="btn-user" @onclick="() => sendMessageTo()">
+            <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65"/>
             <br />
             <p class="name">Nuru</p>
         </button>
-        <button class="user-icon">
-            <img src="css\images\Salim.png" alt="Salim" class="icon" />
+        <button class="btn-user">
+            <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65"/>
             <br />
             <p class="name">Salim</p>
         </button>
@@ -61,27 +46,28 @@
 else
 {
     <div class="row">
-        <button class="user-icon" @onclick="() => addUserToHelpingHands()">
-            <img src="css\images\Nuru.png" alt="Nuru" class="icon" />
+        <button class="btn-user" @onclick="() => addUserToHelpingHands()">
+            <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
             <br />
             <p class="name">Nuru</p>
         </button>
-        <button class="user-icon">
-            <img src="css\images\Salim.png" alt="Salim" class="icon" />
+        <button class="btn-user">
+            <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65" />
             <br />
             <p class="name">Salim</p>
         </button>
-        <button class="user-icon">
-            <img src="css\images\Kamali.png" alt="Kamali" class="icon" />
+        <button class="btn-user">
+            <img src="css\images\Kamali.png" alt="Kamali" class="rounded-circle" height="65" />
             <br />
             <p class="name">Kamali</p>
         </button>
     </div>
 }
 
+@* ------------- Display Content of the Lesson -------------------*@
 @if (ExistingLesson != null)
 {
-    <h1 class="h1-teamh" style="color: rgb(7, 88, 50);">@(ExistingLesson.lessonTitle)</h1>
+    <h1 class="display-4" style="color: rgb(7, 88, 50);">@(ExistingLesson.lessonTitle)</h1>
 
     <div class="video-teamh">
         <br /><br />

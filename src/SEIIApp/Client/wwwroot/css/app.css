@@ -43,7 +43,8 @@ a, .btn-link {
 }
 
 .envelope {
-   height:30px;
+    height: 30px;
+    color: rgb(7, 88, 50)!important;
 }
 
 .envelope:hover {
@@ -57,17 +58,10 @@ a, .btn-link {
 .row {
     float:right;
 }
-.user-icon {
-    float:left;
-    margin-left:10px;
-    border-style:none;
 
-}
 
-.icon{
-    height:65px;
-    
-    border-radius:50%;
+.user_icon{
+    height:65px!important;
 }
 
 .name {
@@ -90,12 +84,6 @@ a, .btn-link {
 }
 /*all adjustments for selfmade buttons*/
 /*--------- Helping-Hand-Button ----------*/
-.helpingHand {
-    float: right;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 40px;
-}
 
 .btn-helping-hand {
     height: 65px;
@@ -142,16 +130,17 @@ a, .btn-link {
 }
 
 .btn-add-helper {
-    position: relative;
     transition: 0.5s;
-    border-style:none;
+    border-style: solid;
+    border: solid;
+    border-radius: 10px;
+    border-color: rgb(7, 88, 50);
     margin-left:50px;
-    height:65px;
+    height: 65px;
 }
 
 .btn-add-helper:hover {
-    background-color: lightblue;
-    border-color: rgba(0, 0, 0, 0);
+    background-color: lightgreen;
     border-width:5px;
 }
     
@@ -183,27 +172,24 @@ a, .btn-link {
     height: 65px;
     width: 65px;
     position: relative;
-    margin: auto;
+    margin-left: 10px;
     transition: 0.5s;
-    border: 3px solid rgba(0, 0, 0, 0);
-    border-radius: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color:none;
 }
 
 .btn-user:hover {
-    background-color: rgba(124, 252, 0, 0.50);
-    border-color: rgba(0, 0, 0, 0);
+     
+    border: 1px solid rgb(7, 88, 50);
+       
 }
 
-.btn-user:focus {
-    background-color: rgba(124, 252, 0, 0.50);
-    border-color: lawngreen;
-}
-
-.btn-user:focus > .fas-user {
-    color: white;
+.height-65px {
+    height:65px;
+    width: 65px;
 }
 /*----------------------------------------*/
-
 /*All adjustments for pop-up-create-profile*/
 .testbody {
     margin: 0;
