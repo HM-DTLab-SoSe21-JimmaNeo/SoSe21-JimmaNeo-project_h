@@ -15,8 +15,9 @@ html, body {
 }
 
 
-h1 {
-    color: rgb(7, 88, 50);
+
+.step-up-color {
+    color: rgb(7, 88, 50) !important;
 }
 
 a, .btn-link {
@@ -39,6 +40,14 @@ a, .btn-link {
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 10px 10px 10px 10px;
+}
+
+.envelope {
+   height:30px;
+}
+
+.envelope:hover {
+    color:steelblue;
 }
 
 .btn-julia:hover {

@@ -2,17 +2,17 @@
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject NavigationManager navigation
 
-<h1 style="color: rgb(7, 88, 50);">StepUp</h1>
+<h1 class="display-4 step-up">StepUp</h1>
 
-<h2>Learn and Help!</h2>
+<h2 class="step-up">Learn and Help!</h2>
 
 @{ var numRequests = 3; }
 <div class="helpingHand">
 
    
     
-    <button type="button" class="btn btn-helping-hand" @onclick="() => goToMessages()">
-        <img src="helpingbutton2.png" alt="helping hands" height="65px;"/>
+    <button type="button" class="step-up-color envelope float-right" @onclick="() => goToMessages()">
+        <i class="fas fa-envelope"></i>
         <span class="num-requests">@numRequests</span>
     </button>
         

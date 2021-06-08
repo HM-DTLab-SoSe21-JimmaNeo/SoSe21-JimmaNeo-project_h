@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\user1.png" />
-    <None Include="wwwroot\user3.png" />
+    <None Include="wwwroot\css\images\user1.png" />
+    <None Include="wwwroot\css\images\user3.png" />
   </ItemGroup>
 
   <ItemGroup>
