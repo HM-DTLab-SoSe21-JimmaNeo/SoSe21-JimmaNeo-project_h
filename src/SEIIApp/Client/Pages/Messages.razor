@@ -1,56 +1,56 @@
-﻿@page "/Messages"
+﻿@page "/messages"
 
 @inject NavigationManager navManager
 @inject IJSRuntime jsRuntime
 @inject HttpClient http
 
-<h3>Here are your current messages</h3>
+<h2 class="display-4" style="color: rgb(7, 88, 50);">Your Conversations</h2>
 
-@*//TODO: Alle Nachrichten auflisten. Optionen löschen und antworten. Anzeigen ungelesener Nachrichten*@
+    @*//TODO: Alle Nachrichten auflisten. Optionen löschen und antworten. Anzeigen ungelesener Nachrichten*@
 
-<h1>You have new messages</h1>
+    <h3>You have new messages</h3>
 
 
-@for(int i=0; i <= 3; i++) 
-{
-<div class="row">
-    @if (i == 0)
+    @for (int i = 0; i <= 3; i++)
     {
-    @*<button @onclick = "() => ShowMessage()">
-        <img src="user1.png" alt="" />
-        <p>Selina: is searching for help in lesson 1 </p>
-       
-    </button>*@
+        <div class="row">
+            @if (i == 0)
+            {
+                @*<button @onclick = "() => ShowMessage()">
+                        <img src="user1.png" alt="" />
+                        <p>Selina: is searching for help in lesson 1 </p>
+
+                    </button>*@
+            }
+            else if (i == 1)
+            {
+                <img src="css\images\user2.png" alt="" />
+                <p>Pauline: is searching for help in lesson 2</p>
+            }
+        </div>
     }
-    else if (i == 1)
-    {
-        <img src="css\images\user2.png" alt="" />
-        <p>Pauline: is searching for help in lesson 2</p>
+
+    @*@foreach (var m in messages) //TODO: Wie kann ich auf alle Messages für diesen User zugreifen
+        {
+        <div class="message">
+            From: @m.senderName  </br>
+            Received: @m.messageDateTime </br>
+            @Model.messageText
+            <button>Toggle read/unread</button>
+            <button>Reply</button>
+            <button>Delete from my list</button>
+        </div>
+        }*@
+
+    @code {
+        //var Message m1 = new Message();
+        //void ShowMessage()
+        //{
+        //    navManager.NavigateTo("chat_user_1");
+        //}
+
+        //public void dsfs()
+        //{
+        //    ViewData
+        //}
     }
-</div>
-}
-
-@*@foreach (var m in messages) //TODO: Wie kann ich auf alle Messages für diesen User zugreifen
-{
-<div class="message">
-    From: @m.senderName  </br>
-    Received: @m.messageDateTime </br>
-    @Model.messageText
-    <button>Toggle read/unread</button>
-    <button>Reply</button>
-    <button>Delete from my list</button>
-</div>
-}*@
-
-@code {
-    //var Message m1 = new Message();
-    //void ShowMessage()
-    //{
-    //    navManager.NavigateTo("chat_user_1");
-    //}
-
-    //public void dsfs() 
-    //{
-    //    ViewData
-    //}
-}

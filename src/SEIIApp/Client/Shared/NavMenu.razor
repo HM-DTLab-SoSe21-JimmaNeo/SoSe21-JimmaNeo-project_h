@@ -1,12 +1,16 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">
-        @if(_actualNavNumber == 1)
-        {
-            <p>Profile</p>
-        }
-        else if (_actualNavNumber == 0)
+        @if (_actualNavNumber == 0)
         {
             <p>Home</p>
+        }
+        else if (_actualNavNumber == 2)
+        {
+            <p>Messages</p>
+        }
+        else if (_actualNavNumber == 1)
+        {
+            <p>Profile</p>
         }
     </a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -29,6 +33,16 @@
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="profile" @onclick="() => ActualNavigation(1)">
                 <span class="oi fas fa-user" aria-hidden="true"></span> Profile
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="messages" @onclick="() => ActualNavigation(2)">
+                <span class="fas fa-envelope" aria-hidden="true"></span> &nbsp; &nbsp; Messages
             </NavLink>
         </li>
     </ul>

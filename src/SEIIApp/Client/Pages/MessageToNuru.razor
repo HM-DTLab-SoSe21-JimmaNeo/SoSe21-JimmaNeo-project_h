@@ -2,11 +2,18 @@
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject NavigationManager navigation
 
-    <h1 class="h1-teamh" style="color: rgb(7, 88, 50);">Ask Nuru for help for chapter 1</h1>
+    <h1 class="display-4" style="color: rgb(7, 88, 50);">Ask Nuru for help for lesson 1!</h1>
+    
+    <div class="float-right">
+        <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
+    </div>
 
-   
-    <textarea name="message" rows="10" cols="30">
-    Enter your text here
-    </textarea> 
-    <br>
-    <button type="button" class="btn btn-info">Submit</button>
+    <div class="container float-left">
+        <form action="/action_page.php"> <!--TODO: Korrekte Aktion hinterlegen-->
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="5" id="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+    </div>
