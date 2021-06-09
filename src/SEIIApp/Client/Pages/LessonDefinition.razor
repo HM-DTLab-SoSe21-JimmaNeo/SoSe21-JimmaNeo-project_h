@@ -7,59 +7,54 @@
 
     @if (buttonPressed)
     {
-        <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
-            <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65px;" />
+        <button type="button" class="btn-add-helper" @onclick="() => addUserToHelpingHands()">
+            <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65" />
+            <br />
+            <span style="font-size:x-small">You are a helping hand!</span>
         </button>
-        <br />
-        <br />
-        <br />
-        <p>         You are a helping hand!</p>
     }
     else
     {
-        <button type="button" class="btn btn-add-helper" @onclick="() => addUserToHelpingHands()">
-            <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65px;" />
+        <button type="button" class="btn-add-helper" @onclick="() => addUserToHelpingHands()">
+            <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65" />
+            <br />
+            <span style="font-size:x-small">Click to become a helping hand!</span>
         </button>
-        <br />
-        <br />
-        <br />
-        <p>         Click to become a helping hand!</p>
     }
 </div>
-
 @* ------------- Display Helpers on the top right  -------------------*@
 @if (!buttonPressed)
 {
-    <div class="row">
-        <button class="btn-user" @onclick="() => sendMessageTo()">
-            <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65"/>
+    <div class="float-right">
+        <button class="btn-add-helper" @onclick="() => sendMessageTo()">
+            <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
             <br />
-            <p class="name">Nuru</p>
+            <span class="name">Nuru</span>
         </button>
-        <button class="btn-user">
-            <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65"/>
+        <button class="btn-add-helper">
+            <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65" />
             <br />
-            <p class="name">Salim</p>
+            <span class="name">Salim</span>
         </button>
     </div>
 }
 else
 {
-    <div class="row">
-        <button class="btn-user" @onclick="() => addUserToHelpingHands()">
+    <div class="float-right">
+        <button class="btn-add-helper" @onclick="() => sendMessageTo()">
             <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
             <br />
-            <p class="name">Nuru</p>
+            <span class="name">Nuru</span>
         </button>
-        <button class="btn-user">
+        <button class="btn-add-helper">
             <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65" />
             <br />
-            <p class="name">Salim</p>
+            <span class="name">Salim</span>
         </button>
-        <button class="btn-user">
+        <button class="btn-add-helper">
             <img src="css\images\Kamali.png" alt="Kamali" class="rounded-circle" height="65" />
             <br />
-            <p class="name">Kamali</p>
+            <span class="name">Kamali</span>
         </button>
     </div>
 }

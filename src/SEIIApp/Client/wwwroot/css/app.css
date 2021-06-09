@@ -172,17 +172,18 @@ a, .btn-link {
 
 .btn-add-helper {
     transition: 0.5s;
-    border-style: solid;
-    border: solid;
+    background-color:transparent;
+    border-style: none;
+    border-width: 0px;
     border-radius: 10px;
-    border-color: rgb(7, 88, 50);
-    margin-left:50px;
-    height: 65px;
+    border-color: darkgreen;
+    margin-left: 10px;
+    color:darkslategray;
 }
 
 .btn-add-helper:hover {
-    background-color: lightgreen;
-    border-width:5px;
+ 
+    background-color:mediumseagreen;
 }
     
 .btn-add-helper:active {
@@ -210,14 +211,14 @@ a, .btn-link {
 }
 
 .btn-user {
-    height: 65px;
-    width: 65px;
+    width: 70px;
     position: relative;
-    margin-left: 10px;
+    margin: 10px;
     transition: 0.5s;
     border: none;
     border-radius: 5px;
-    background-color:none;
+    background-color:transparent;
+    transition-duration:0.5s;
 }
 
 .btn-user:hover {
