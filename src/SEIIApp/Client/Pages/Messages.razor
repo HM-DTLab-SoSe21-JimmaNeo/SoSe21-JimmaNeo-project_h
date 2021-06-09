@@ -6,11 +6,62 @@
 
 <h2 class="display-4" style="color: rgb(7, 88, 50);">Your Conversations</h2>
 
-    @*//TODO: Alle Nachrichten auflisten. Optionen löschen und antworten. Anzeigen ungelesener Nachrichten*@
+@*//TODO: Alle Nachrichten auflisten. Optionen löschen und antworten. Anzeigen ungelesener Nachrichten*@
 
-    <h3>You have new messages</h3>
+<h3>You have 2 new message</h3>
 
+<div class="jumbotron">
+    <div>
+        <img src="css\images\Marjani.png" alt="Marjani" class="rounded-circle" height="65" />
+        <br />
+        <span class="name">Salim</span>
+    </div>
+    <h4>Marjani has a question for lesson 1 <span class="badge badge-secondary">New</span></h4>
+    Received: 10.06.2021 at 2:35pm
+    <p>
+        Hello Kamali,
+        I have a question about lesson 1. Do you have time tomorrow during lunch break.
+        <br /> Thanks so much!
+        <br /> Marjani :)
+    </p>
+    <button class="btn btn-success">Reply</button>
+    <button class="btn btn-danger">Delete</button>
+</div>
 
+<div class="jumbotron">
+    <div>
+        <img src="css\images\Liya.png" alt="Liya" class="rounded-circle" height="65" />
+        <br />
+        <span class="name">Liya</span>
+    </div>
+    <h4>Liya has a question for lesson 2 <span class="badge badge-secondary">New</span></h4>
+    Received: 08.06.2021 at 10:21pm
+    <p>
+        Hello Kamali,
+        Have you already practiced with the doll? Can you watch me practice and give me tips.
+        <br /> Thank you!
+        <br /> Liya
+    </p>
+    <button class="btn btn-success">Reply</button>
+    <button class="btn btn-danger">Delete</button>
+</div>
+
+<div class="jumbotron">
+    <div>
+        <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65" />
+        <br />
+        <span class="name">Salim</span>
+    </div>
+    <h4>Salim has a question for lesson 4 </h4>
+    Received: 4.06.2021 at 7:08am
+    <p>
+        Thanks so much for your help yesterday. Much appreciated.
+    </p>
+    <button class="btn btn-success">Reply</button>
+    <button class="btn btn-danger">Delete</button>
+</div>
+
+@*
     @for (int i = 0; i <= 3; i++)
     {
         <div class="row">
@@ -20,37 +71,37 @@
                         <img src="user1.png" alt="" />
                         <p>Selina: is searching for help in lesson 1 </p>
 
-                    </button>*@
+                    </button>
             }
             else if (i == 1)
             {
-                <img src="css\images\user2.png" alt="" />
-                <p>Pauline: is searching for help in lesson 2</p>
+<img src="css\images\user2.png" alt="" />
+<p>Pauline: is searching for help in lesson 2</p>
             }
         </div>
     }
+*@
+@*@foreach (var m in messages) //TODO: Wie kann ich auf alle Messages für diesen User zugreifen
+    {
+    <div class="message">
+        From: @m.senderName  </br>
+        Received: @m.messageDateTime </br>
+        @Model.messageText
+        <button>Toggle read/unread</button>
+        <button>Reply</button>
+        <button>Delete from my list</button>
+    </div>
+    }*@
 
-    @*@foreach (var m in messages) //TODO: Wie kann ich auf alle Messages für diesen User zugreifen
-        {
-        <div class="message">
-            From: @m.senderName  </br>
-            Received: @m.messageDateTime </br>
-            @Model.messageText
-            <button>Toggle read/unread</button>
-            <button>Reply</button>
-            <button>Delete from my list</button>
-        </div>
-        }*@
+@code {
+    //var Message m1 = new Message();
+    //void ShowMessage()
+    //{
+    //    navManager.NavigateTo("chat_user_1");
+    //}
 
-    @code {
-        //var Message m1 = new Message();
-        //void ShowMessage()
-        //{
-        //    navManager.NavigateTo("chat_user_1");
-        //}
-
-        //public void dsfs()
-        //{
-        //    ViewData
-        //}
-    }
+    //public void dsfs()
+    //{
+    //    ViewData
+    //}
+}
