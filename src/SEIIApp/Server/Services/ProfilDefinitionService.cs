@@ -37,7 +37,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns all quiz definitions. Includes also questions and their answers.
+        /// Returns all profil definitions.
         /// </summary>
         public ProfilDefinition[] GetAllProfile()
         {
@@ -45,7 +45,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns the quiz with the given id. Includes also questions and their answers.
+        /// Returns the profil with the given id.
         /// </summary>
         public ProfilDefinition GetProfilWithId(int id)
         {
@@ -54,7 +54,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Adds a quiz.
+        /// Adds a profil.
         /// </summary>
         public ProfilDefinition AddProfil(ProfilDefinition profil)
         {
@@ -64,7 +64,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Updates a quiz.
+        /// Updates a profil.
         /// </summary>
         public ProfilDefinition UpdateProfil(ProfilDefinition profil)
         {
@@ -81,7 +81,7 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Removes a quiz and all dependencies.
+        /// Removes a profil and all dependencies.
         /// </summary>
         public void RemoveProfil(ProfilDefinition profil)
         {

@@ -20,6 +20,22 @@ namespace SEIIApp.Server.Data
             builder.Entity<LessonDefinition>()
             .HasIndex(u => u.lessonNumber)
             .IsUnique();
+
+            builder.Entity<LessonProfilDefinition>()
+           .HasIndex(u => new { u.Id, u.lessonNumber })
+           .IsUnique();
+
+            builder.Entity<LessonProfilDefinition>()
+            .HasOne(p => p.LessonDefinition)
+            .WithMany(b => b.LessonProfilDefinition)
+            .HasForeignKey(p => p.lessonNumber);
+
+            builder.Entity<LessonProfilDefinition>()
+            .HasOne(p => p.ProfilDefinition)
+            .WithMany(b => b.LessonProfilDefinition)
+            .HasForeignKey(p => p.Id);
+            
+
             //Hier werden Einstellungen/Optionen zur Datenbank und zu den Tabellen erfasst
             //die sich nicht durch Annotationen abbilden lassen (z.B. multiple primäre Schlüssel).
         }
@@ -27,6 +43,7 @@ namespace SEIIApp.Server.Data
         public DbSet<Domain.ProfilDefinition> ProfilDefinitions { get; set; }
         public DbSet<Domain.LessonDefinition> LessonDefinitions { get; set; }
         public DbSet<Domain.MessageDefinition> MessageDefinitions { get; set; }
+        public DbSet<Domain.LessonProfilDefinition> LessonProfilDefinitions { get; set; }
 
 
     }

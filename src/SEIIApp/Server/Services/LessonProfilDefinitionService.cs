@@ -13,21 +13,21 @@ using SEIIApp.Server.Domain;
 
 namespace SEIIApp.Server.Services
 {
-    public class LessonDefinitionService
+    public class LessonProfilDefinitionService
     {
         private ApplicationDBContext ApplicationDBContext { get; set; }
         private IMapper Mapper { get; set; }
-        public LessonDefinitionService(ApplicationDBContext db, IMapper mapper)
+        public LessonProfilDefinitionService(ApplicationDBContext db, IMapper mapper)
         {
             this.ApplicationDBContext = db;
             this.Mapper = mapper;
         }
 
-        private IQueryable<LessonDefinition> GetQueryableForLessonDefinitions()
+        private IQueryable<LessonProfilDefinition> GetQueryableForLessonProfilDefinitions()
 
         {
             return ApplicationDBContext
-                .LessonDefinitions;
+                .LessonProfilDefinitions;
 
             //   .Include(profil => profil.id)
             //      .ThenInclude(question => question.Answers);
@@ -40,32 +40,32 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Returns all lesson definitions.
+        /// Returns all lessonprofil definitions. 
         /// </summary>
-        public LessonDefinition[] GetAllLessons()
+        public LessonProfilDefinition[] GetAllLessonsProfil()
         {
-            return GetQueryableForLessonDefinitions().ToArray();
+            return GetQueryableForLessonProfilDefinitions().ToArray();
         }
 
         /// <summary>
-        /// Returns the lesson with the given id.
+        /// Returns the lessonprofil with the given id.
         /// </summary>
-        public LessonDefinition GetLessonWithid(int id)
+        public LessonProfilDefinition GetLessonProfilWithid(int lessonProfilId)
         {
-            return GetQueryableForLessonDefinitions().Where(lesson => lesson.lessonNumber == id).FirstOrDefault();
+            return GetQueryableForLessonProfilDefinitions().Where(lessonProfil => lessonProfil.lessonProfilId == lessonProfilId).FirstOrDefault();
             //FirstOrDefault liefert das erste gefundene Objekt oder null zurück
         }
 
         /// <summary>
-        /// Adds a lesson.
+        /// Adds a lessonprofil.
         /// </summary>
 
-        public LessonDefinition AddLesson(LessonDefinition lesson)
+        public LessonProfilDefinition AddLessonProfil(LessonProfilDefinition lessonProfil)
         { 
             try { 
-                ApplicationDBContext.LessonDefinitions.Add(lesson);
+                ApplicationDBContext.LessonProfilDefinitions.Add(lessonProfil);
                 ApplicationDBContext.SaveChanges();
-                return lesson;
+                return lessonProfil;
             }catch (Exception e)
             {
                 string errorMessage = e.InnerException.ToString();
@@ -75,28 +75,28 @@ namespace SEIIApp.Server.Services
         }
 
         /// <summary>
-        /// Updates a lesson.
+        /// Updates a lessonprofil.
         /// </summary>
-        public LessonDefinition UpdateLesson(LessonDefinition lesson)
+        public LessonProfilDefinition UpdateLessonProfil(LessonProfilDefinition lessonProfil)
         {
-            //Wenn wir ein Lesson aktualisieren, dann fragen wir das existierende Lesson ab und 
+            //Wenn wir ein LessonPofil aktualisieren, dann fragen wir das existierende Lesson ab und 
             //Mappen die Änderung hinein.
 
-            var existingLesson = GetLessonWithid(lesson.id);
+            var existingLessonProfil = GetLessonProfilWithid(lessonProfil.lessonProfilId);
 
-            Mapper.Map(lesson, existingLesson); //we can map into the same object type
+            Mapper.Map(lessonProfil, existingLessonProfil); //we can map into the same object type
 
-            ApplicationDBContext.LessonDefinitions.Update(existingLesson);
+            ApplicationDBContext.LessonProfilDefinitions.Update(existingLessonProfil);
             ApplicationDBContext.SaveChanges();
-            return existingLesson;
+            return existingLessonProfil;
         }
 
         /// <summary>
-        /// Removes a lesson and all dependencies.
+        /// Removes a lessonprofil and all dependencies.
         /// </summary>
-        public void RemoveLesson(LessonDefinition lesson)
+        public void RemoveLessonProfil(LessonProfilDefinition lessonProfil)
         {
-            ApplicationDBContext.LessonDefinitions.Remove(lesson);
+            ApplicationDBContext.LessonProfilDefinitions.Remove(lessonProfil);
             ApplicationDBContext.SaveChanges();
         }
 

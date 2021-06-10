@@ -11,6 +11,8 @@ using System.IO;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using SEIIApp.Server.Data;
+using Pomelo.EntityFrameworkCore.MySql;
+using MySqlConnector;
 
 namespace SEIIApp.Server
 {
@@ -30,7 +32,16 @@ namespace SEIIApp.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+               
+            var connectionString = "server=database-1.cxnloeid6y0t.eu-central-1.rds.amazonaws.com;user=admin;password=yJxW79w16dpveOj9AczN;database=database-1";
+            
+            services.AddDbContext<ApplicationDBContext>(
+                dbContextOptions => dbContextOptions
+                    .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                    .EnableSensitiveDataLogging() // <-- These two calls are optional but help
+                    .EnableDetailedErrors()       // <-- with debugging (remove for production).
+            );
+            
 
             //Swagger -- OpenAPI UI
             //Diese Zeilen fügen die Verwendung einer generierten API-Beschreibung
@@ -74,6 +85,7 @@ namespace SEIIApp.Server
             //Aber auch irgendwelche anderen Arten von Berechnungen.
             services.AddScoped<Services.ProfilDefinitionService>();
             services.AddScoped<Services.LessonDefinitionService>();
+            services.AddScoped<Services.LessonProfilDefinitionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

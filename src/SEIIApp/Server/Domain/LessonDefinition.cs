@@ -14,5 +14,7 @@ namespace SEIIApp.Server.Domain
         public string lessonTitle { get; set; }
         public string videoUrl { get; set; }
         public string text { get; set; }
+
+        public List<LessonProfilDefinition> LessonProfilDefinition { get; set; }
     }
 }

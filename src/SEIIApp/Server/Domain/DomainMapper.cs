@@ -31,6 +31,12 @@ namespace SEIIApp.Server.Domain
             CreateMap<ProfilDefinition, ProfilDefinitionDto>();
             CreateMap<ProfilDefinition, ProfilDefinition>();
 
+            CreateMap<LessonProfilDefinition, LessonProfilDefinitionDto>();
+            CreateMap<LessonProfilDefinitionDto, LessonProfilDefinition>();
+
+            CreateMap<LessonProfilDefinition, LessonProfilDefinitionDto>();
+            CreateMap<LessonProfilDefinition, LessonProfilDefinition>();
+
             CreateMap<LessonDefinition, LessonDefinitionDto>();
             CreateMap<LessonDefinitionDto, LessonDefinition>();
 
