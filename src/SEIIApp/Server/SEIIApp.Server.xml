@@ -38,9 +38,15 @@
             <param name="lessonProfilId"></param>
             <returns></returns>
         </member>
-        <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetAllLessonsProfil">
+        <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetAllLessonsProfilForLessonNumber(System.Int32)">
             <summary>
             Returns all lessons names and ids.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetAllLessonsProfil">
+            <summary>
+            Returns all lessonprofils for a lessonNumber.
             </summary>
             <returns></returns>
         </member>
@@ -113,6 +119,11 @@
         <member name="M:SEIIApp.Server.Services.LessonProfilDefinitionService.GetAllLessonsProfil">
             <summary>
             Returns all lessonprofil definitions. 
+            </summary>
+        </member>
+        <member name="M:SEIIApp.Server.Services.LessonProfilDefinitionService.GetAllLessonsProfilForLessonNumber(System.Int32)">
+            <summary>
+            Returns all lessonprofil definitions for a specific lessonNumber. 
             </summary>
         </member>
         <member name="M:SEIIApp.Server.Services.LessonProfilDefinitionService.GetLessonProfilWithid(System.Int32)">
