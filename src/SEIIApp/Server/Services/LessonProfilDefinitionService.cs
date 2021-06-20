@@ -47,6 +47,15 @@ namespace SEIIApp.Server.Services
             return GetQueryableForLessonProfilDefinitions().ToArray();
         }
 
+
+        /// <summary>
+        /// Returns all lessonprofil definitions for a specific lessonNumber. 
+        /// </summary>
+        public LessonProfilDefinition[] GetAllLessonsProfilForLessonNumber(int lessonNumber)
+        {
+            return GetQueryableForLessonProfilDefinitions().Where(lessonProfil => lessonProfil.lessonNumber == lessonNumber).ToArray();
+        }
+
         /// <summary>
         /// Returns the lessonprofil with the given id.
         /// </summary>
@@ -62,16 +71,16 @@ namespace SEIIApp.Server.Services
 
         public LessonProfilDefinition AddLessonProfil(LessonProfilDefinition lessonProfil)
         { 
-            try { 
+          //  try { 
                 ApplicationDBContext.LessonProfilDefinitions.Add(lessonProfil);
                 ApplicationDBContext.SaveChanges();
                 return lessonProfil;
-            }catch (Exception e)
-            {
-                string errorMessage = e.InnerException.ToString();
+          //  }catch (Exception e)
+            //{
+            //    string errorMessage = e.InnerException.ToString();
                
-                throw e.InnerException;
-            }
+            //    throw e.InnerException;
+            //}
         }
 
         /// <summary>

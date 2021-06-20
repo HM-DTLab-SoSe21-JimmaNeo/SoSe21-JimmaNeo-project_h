@@ -60,6 +60,23 @@ namespace SEIIApp.Server.Controllers
         //    var mappedQuizzes = Mapper.Map<ProfilDefinitionBaseDto[]>(quizzes);
         //    return Ok(mappedQuizzes);
         //}
+        [HttpGet("AllHelpingHandForLesson/{lessonNumber}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<LessonProfilDefinitionDto[]> GetAllLessonsProfilForLessonNumber([FromRoute] int lessonNumber)
+        {
+           
+            var lessonsProfil = LessonProfilDefinitionService.GetAllLessonsProfilForLessonNumber(lessonNumber);
+            if (lessonsProfil == null) return StatusCode(StatusCodes.Status404NotFound);
+            var mappedLessonsProfil = Mapper.Map<LessonProfilDefinitionDto[]>(lessonsProfil);
+            return Ok(mappedLessonsProfil);
+        }
+
+        /// <summary>
+        /// Returns all lessonprofils for a lessonNumber.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -70,6 +87,8 @@ namespace SEIIApp.Server.Controllers
             return Ok(mappedLessonsProfil);
         }
 
+
+
         /// <summary>
         /// Adds or updates a lesson definition.
         /// </summary>
@@ -78,7 +97,7 @@ namespace SEIIApp.Server.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
+     //   [ProducesResponseType(StatusCodes.Status409Conflict)]
         public ActionResult<LessonProfilDefinitionDto> AddOrUpdateLessonProfil([FromBody] LessonProfilDefinitionDto model)
         {
             if (ModelState.IsValid) 
@@ -93,12 +112,12 @@ namespace SEIIApp.Server.Controllers
 
                 if (model.LessonProfilId == 0)
                 { //add
-                  try { 
+                 // try { 
                         mappedModel = LessonProfilDefinitionService.AddLessonProfil(mappedModel);
-                    }catch
-                    { 
-                    return Conflict(ModelState);
-                    }
+                //    }catch
+                    //{ 
+                    //return Conflict(ModelState);
+                    //}
                     }
                 else
                 { //update

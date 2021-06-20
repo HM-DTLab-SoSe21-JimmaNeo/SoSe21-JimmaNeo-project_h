@@ -28,7 +28,8 @@ namespace SEIIApp.Server.Data
             builder.Entity<LessonProfilDefinition>()
             .HasOne(p => p.LessonDefinition)
             .WithMany(b => b.LessonProfilDefinition)
-            .HasForeignKey(p => p.lessonNumber);
+            .HasForeignKey(p => p.lessonNumber)
+            .HasPrincipalKey(b => b.lessonNumber);
 
             builder.Entity<LessonProfilDefinition>()
             .HasOne(p => p.ProfilDefinition)
