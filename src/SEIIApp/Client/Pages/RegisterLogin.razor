@@ -1,0 +1,97 @@
+﻿@page "/"
+
+@inject NavigationManager navigation
+
+<div class="createProfile" @onclick="RegisterOrLogin">
+    <button type="button" class="btn btn-primary btn-user">
+        <i class="btn btn-outline-primary">Register</i>
+    </button>
+    <button type="button" class="btn btn-primary btn-user">
+        <i class="btn btn-outline-primary">LogIn</i>
+    </button>
+</div>
+
+
+@if (change)
+{
+    <div class="testbody">
+        <div class="l-form">
+            <form class="profileForm" action="/" method="post">
+                <h1 class="form__title">New Profile</h1>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">First name</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">Surname</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">Email</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="password" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">Password</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="password" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">Repeat Password</label>
+                </div>
+
+                <input type="submit" class="form__button" value="Sign In" />
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="testbody">
+        <div class="l-form">
+            <form class="profileForm" action="/" method="post">
+                <h1 class="form__title">New Profile</h1>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " @bind="email"/>
+                    <label for="" class="form__label">E-Mail</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder=" " />
+                    <label for="" class="form__label">Password</label>
+                </div>
+                <input class="form__button" value="Sign In" @onclick="NavigateToHome" />
+            </form>
+        </div>
+    </div>
+
+    <ul>
+        <li><code>email</code>: @email</li>
+        <li><code>Email</code>: @Email</li>
+    </ul>
+
+}
+
+@code {
+
+    private string email;
+
+    public string Email { get; set; }
+
+    private bool change = false;
+
+    public void RegisterOrLogin()
+    {
+        change = !change;
+    }
+
+    public void NavigateToHome()
+    {
+        navigation.NavigateTo("/home");
+    }
+}
