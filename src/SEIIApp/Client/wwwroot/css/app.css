@@ -25,27 +25,29 @@ a, .btn-link {
     color: #0366d6;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #fff;
-    border-color: #1861ac;
-}
 
-.btn-julia {
+.btn-lesson {
+    color:  lightgray;
     background-color: darkslategrey;
     min-width: 350px;
     max-width: 600px;
     border-color: black;
     border-style: solid;
+    border-width: 1px;
     border-radius: 20px;
-    color: white;
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 10px 10px 10px 10px;
 }
 
-.btn-julia:hover {
+.btn-lesson:hover {
     background-color: steelblue;
+}
+
+.btn-lesson:focus {
+    border-color: orange;
+    border-width: 3px;
+    box-shadow: none;
 }
 
 .btn-submit {
@@ -68,38 +70,35 @@ a, .btn-link {
     background-color: transparent;
     border-color: darkgreen;
     border-style: none;
-    border-width: 1px;
+    border-width: 0px;
     border-radius: 5px;
     margin-right: 10px;
     padding: 10px 10px 10px 10px;
     transition-duration: 0.5s;
-    color:darkgreen;
 }
 
 .btn-envelope:hover {
-    background-color:transparent;
-    color: black;
+    background-color: transparent;
+    color: steelblue !important;
+    border-style:none;
+    border-width:0px;
 }
 
 .btn-envelope:focus {
     background-color: transparent;
-    color: orange;
+    color: orange !important;
+    border-style: none !important;
+    border-width: 0px !important;
+    box-shadow:none;
 }
 
-.envelope {
+.envelope-style {
     font-size:xx-large;
 }
-
-.envelope:hover {
-    color:steelblue;
+.envelope-style:focus {
+    color: orange;
+    border-color:none;
 }
-
-
-
-.row {
-    float:right;
-}
-
 
 .user_icon{
     height:65px!important;
@@ -330,7 +329,7 @@ a, .btn-link {
     z-index: 10;
 }
 
-.num-requests{
+.num-request-style{
     font-size:x-large;
 }
 

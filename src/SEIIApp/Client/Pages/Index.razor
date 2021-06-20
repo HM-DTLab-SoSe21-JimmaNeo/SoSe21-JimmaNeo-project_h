@@ -4,9 +4,9 @@
 
 @{ var numRequests = 2; }
 <div class="float-right">
-    <button type="button" class="btn btn-envelope" @onclick="() => goToMessages()">
-        <i class="fas fa-envelope envelope"></i>
-        <span class="num-requests">@numRequests</span>
+    <button type="button" class="step-up-color btn-envelope btn" @onclick="() => goToMessages()">
+        <i class="fas fa-envelope envelope-style"></i>
+        <span class="num-request-style">@numRequests</span>
     </button>
 </div>
 
@@ -18,14 +18,12 @@
     <br />
 </div>
 
-
-
 @if (Lessons?.Length > 0)
 {
     @foreach (var lesson in Lessons)
     {
         <div class="">
-            <button class="btn btn-primary btn-julia" @onclick="() => NavigateToLesson(lesson)">
+            <button class="btn  btn-lesson" @onclick="() => NavigateToLesson(lesson)">
                 @(lesson.lessonNumber)
                 @(lesson.lessonTitle)
             </button>
