@@ -4,13 +4,17 @@
         {
             <p>Home</p>
         }
+        else if (_actualNavNumber == 1)
+        {
+            <p>Profile</p>
+        }
         else if (_actualNavNumber == 2)
         {
             <p>Messages</p>
         }
-        else if (_actualNavNumber == 1)
+        else if (_actualNavNumber == 3)
         {
-            <p>Profile</p>
+            <p>RegisterLogin</p>
         }
     </a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -21,7 +25,7 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" @onclick="() => ActualNavigation(0)">
+            <NavLink class="nav-link" href="home" Match="NavLinkMatch.All" @onclick="() => ActualNavigation(0)">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
@@ -43,6 +47,16 @@
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="messages" @onclick="() => ActualNavigation(2)">
                 <span class="fas fa-envelope" aria-hidden="true"></span> &nbsp; &nbsp; Messages
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" @onclick="() => ActualNavigation(3)">
+                <span class="fas fa-sign-out" aria-hidden="true"></span>Log Out
             </NavLink>
         </li>
     </ul>

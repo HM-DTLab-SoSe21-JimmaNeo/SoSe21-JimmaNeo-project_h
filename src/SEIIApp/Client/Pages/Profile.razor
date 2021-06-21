@@ -1,55 +1,71 @@
 ﻿@page "/profile";
 
-<h3>Profile</h3>
+<h1 class="display-3 step-up-color">Your Profile</h1>
+<h2 class="display-4 step-up-color"></h2>
 
+<div>
+    <h3>Upload a profile picture</h3>
+
+
+    <h3>Tell us about yourself</h3>
+</div>
+
+<div>
+    <h3></h3>
+
+
+</div>
+
+<div class="form-box">
+    <div class="l-form">
+        <form class="profileForm" action="/" method="post">
+            <h1 class="display-4 step-up-color">Change or update basic information:</h1>
+            <div style="padding-top:20px; padding-bottom:10px;">
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder="First Name" />
+                    <label for="" class="form__label">First Name</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder="Last Name" />
+                    <label for="" class="form__label">Last Name</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" placeholder="Email" />
+                    <label for="" class="form__label">Email</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="password" class="form__input" placeholder="Password" />
+                    <label for="" class="form__label">Password</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="password" class="form__input" placeholder="Repeat Password" />
+                    <label for="" class="form__label">Repeat Password</label>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-dark width-40pc" value="Submit" />
+            <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" >
+                <i>Back to Login</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+@*
 <div class="createProfile">
     <button type="button" class="btn btn-primary btn-user" @onclick="() => ShowCreateProfile()">
         <i class="fas-user fas fa-user"></i>
     </button>
 </div>
+*@
 
-    @if (isActive)
-    {
-        <div class="form-box">
-            <div class="l-form">
-                <form class="profileForm" action="/" method="post">
-                    <h1 class="form__title">New Profile</h1>
 
-                    <div class="form__div">
-                        <input type="text" class="form__input" placeholder=" " />
-                        <label for="" class="form__label">First name</label>
-                    </div>  
-                  
-                    <div class="form__div">
-                        <input type="text" class="form__input" placeholder=" " />
-                        <label for="" class="form__label">Surname</label>
-                    </div>
-
-                    <div class="form__div">
-                        <input type="text" class="form__input" placeholder=" " />
-                        <label for="" class="form__label">Email</label>
-                    </div>
-
-                    <div class="form__div">
-                        <input type="password" class="form__input" placeholder=" " />
-                        <label for="" class="form__label">Password</label>
-                    </div>
-
-                    <div class="form__div">
-                        <input type="password" class="form__input" placeholder=" " />
-                        <label for="" class="form__label">Repeat Password</label>
-                    </div>
-
-                    <input type="submit" class="form__button" value="Sign In" />
-                </form>
-            </div>
-        </div>
-    }
+   
 
 @code {
-    private bool isActive = false;
-
-    private void ShowCreateProfile() {
-        isActive = !isActive;
-    }
+    
 }
