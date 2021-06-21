@@ -1,16 +1,6 @@
 ﻿@page "/"
 
 @inject NavigationManager navigation
-<!---------------TOP RIGHT BUTTONS----------->
-<div class="float-right" >
-    <button type="button" class="btn btn-outline-success"@onclick="showRegistrationForm">
-        <i>Register</i>
-    </button>
-    <button type="button" class="btn btn-outline-success" @onclick="showLoginForm">
-        <i>LogIn</i>
-    </button>
-</div>
-
 
 @if (_currentUserStatus == _userStatus.REGISTRATION)
 {<!---------------REGISTRATION FORM----------->
@@ -44,8 +34,11 @@
                         <label for="" class="form__label">Repeat Password</label>
                     </div>
                 </div>
-                
-                <input type="submit" class="btn btn-dark" value="Sign In" />
+
+                <input type="submit" class="btn btn-dark width-40pc" value="Submit" />
+                <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" @onclick="showLoginForm">
+                    <i>Back to Login</i>
+                </button>
             </form>
         </div>
     </div>
@@ -70,8 +63,11 @@
                     </div>
                 </div>
                 @*<input class="form__button" value="Sign In" @onclick="NavigateToHome" />*@
-                <button type="button" class="btn btn-dark" style="" @onclick="performLogin">
+                <button type="button" class="btn btn-dark width-40pc" @onclick="performLogin">
                     Submit
+                </button>
+                <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" @onclick="showRegistrationForm">
+                    <i>Register</i>
                 </button>
             </form>
         </div>
