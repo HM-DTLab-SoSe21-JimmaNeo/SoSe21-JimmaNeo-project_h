@@ -23,7 +23,7 @@
     @foreach (var lesson in Lessons)
     {
         <div class="">
-            <button class="btn  btn-lesson" @onclick="() => NavigateToLesson(lesson)">
+            <button class="btn btn-dark btn-lesson" @onclick="() => NavigateToLesson(lesson)">
                 @(lesson.lessonNumber)
                 @(lesson.lessonTitle)
             </button>

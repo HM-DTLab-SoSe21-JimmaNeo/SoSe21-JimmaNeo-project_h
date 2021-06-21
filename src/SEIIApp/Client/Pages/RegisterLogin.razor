@@ -1,79 +1,81 @@
 ﻿@page "/"
 
 @inject NavigationManager navigation
-
-<div class="createProfile" @onclick="RegisterOrLogin">
-    <button type="button" class="btn btn-primary btn-user">
-        <i class="btn btn-outline-primary">Register</i>
+<!---------------TOP RIGHT BUTTONS----------->
+<div class="float-right" >
+    <button type="button" class="btn btn-outline-success"@onclick="showRegistrationForm">
+        <i>Register</i>
     </button>
-    <button type="button" class="btn btn-primary btn-user">
-        <i class="btn btn-outline-primary">LogIn</i>
+    <button type="button" class="btn btn-outline-success" @onclick="showLoginForm">
+        <i>LogIn</i>
     </button>
 </div>
 
 
-@if (change)
-{
-    <div class="testbody">
+@if (_currentUserStatus == _userStatus.REGISTRATION)
+{<!---------------REGISTRATION FORM----------->
+    <div class="form-box">
         <div class="l-form">
             <form class="profileForm" action="/" method="post">
-                <h1 class="form__title">New Profile</h1>
+                <h1 class="display-4 step-up-color">Register</h1>
+                <div style="padding-top:20px; padding-bottom:10px;">
+                    <div class="form__div">
+                        <input type="text" class="form__input" placeholder="First Name" />
+                        <label for="" class="form__label">First Name</label>
+                    </div>
 
-                <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">First name</label>
+                    <div class="form__div">
+                        <input type="text" class="form__input" placeholder="Last Name" />
+                        <label for="" class="form__label">Last Name</label>
+                    </div>
+
+                    <div class="form__div">
+                        <input type="text" class="form__input" placeholder="Email" />
+                        <label for="" class="form__label">Email</label>
+                    </div>
+
+                    <div class="form__div">
+                        <input type="password" class="form__input" placeholder="Password" />
+                        <label for="" class="form__label">Password</label>
+                    </div>
+
+                    <div class="form__div">
+                        <input type="password" class="form__input" placeholder="Repeat Password" />
+                        <label for="" class="form__label">Repeat Password</label>
+                    </div>
                 </div>
-
-                <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">Surname</label>
-                </div>
-
-                <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">Email</label>
-                </div>
-
-                <div class="form__div">
-                    <input type="password" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">Password</label>
-                </div>
-
-                <div class="form__div">
-                    <input type="password" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">Repeat Password</label>
-                </div>
-
-                <input type="submit" class="form__button" value="Sign In" />
+                
+                <input type="submit" class="btn btn-dark" value="Sign In" />
             </form>
         </div>
     </div>
 }
-else
-{
-    <div class="testbody">
+
+@if(_currentUserStatus == _userStatus.LOGGED_OUT)
+{ <!---------------LOGIN FORM----------->
+    <div class="form-box">
         <div class="l-form">
             <form class="profileForm" action="/" method="post">
-                <h1 class="form__title">New Profile</h1>
+                <h1 class="display-4 step-up-color">Login</h1>
 
-                <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " @bind="email"/>
-                    <label for="" class="form__label">E-Mail</label>
-                </div>
+                <div style="padding-top:20px; padding-bottom:10px;">
+                    <div class="form__div">
+                        <input type="text" class="form__input" placeholder="Email" @bind="email" />
+                        <label for="" class="form__label">E-Mail</label>
+                    </div>
 
-                <div class="form__div">
-                    <input type="text" class="form__input" placeholder=" " />
-                    <label for="" class="form__label">Password</label>
+                    <div class="form__div">
+                        <input type="text" class="form__input" placeholder="Password" />
+                        <label for="" class="form__label">Password</label>
+                    </div>
                 </div>
-                <input class="form__button" value="Sign In" @onclick="NavigateToHome" />
+                @*<input class="form__button" value="Sign In" @onclick="NavigateToHome" />*@
+                <button type="button" class="btn btn-dark" style="" @onclick="performLogin">
+                    Submit
+                </button>
             </form>
         </div>
     </div>
-
-    <ul>
-        <li><code>email</code>: @email</li>
-        <li><code>Email</code>: @Email</li>
-    </ul>
 
 }
 
@@ -83,15 +85,35 @@ else
 
     public string Email { get; set; }
 
-    private bool change = false;
+    private enum _userStatus
+        {
+            LOGGED_OUT,
+            LOGGED_IN,
+            REGISTRATION,
+            REGISTRATION_SUCCESSFUL
+        }
 
-    public void RegisterOrLogin()
+    private _userStatus _currentUserStatus = _userStatus.LOGGED_OUT;
+
+    @*public void RegisterOrLogin()
     {
         change = !change;
+    }*@
+
+    private void showLoginForm()
+    {
+        _currentUserStatus = _userStatus.LOGGED_OUT;
     }
 
-    public void NavigateToHome()
+    private void showRegistrationForm()
     {
+        _currentUserStatus = _userStatus.REGISTRATION;
+    }
+
+    public void performLogin()
+    {
+        @*TODO: Check login data against database*@
+        _currentUserStatus = _userStatus.LOGGED_IN;
         navigation.NavigateTo("/home");
     }
 }

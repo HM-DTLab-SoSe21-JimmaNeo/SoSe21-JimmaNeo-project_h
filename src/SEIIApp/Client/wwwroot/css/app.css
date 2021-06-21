@@ -8,6 +8,9 @@
     --body-font: 'Segoe UI', sans-serif;
     --normal-font-size: 1rem;
     --small-font-size: .75rem;
+    --step-up-darkgreen: rgb(7, 88, 50);
+    --step-up-lightgreen: rgb(226 235 230);
+
 }
 
 html, body {
@@ -20,17 +23,22 @@ html, body {
 .step-up-color {
     color: rgb(7, 88, 50) !important;
 }
+.step-up-dark-background {
+    background-color: rgb(7, 88, 50) !important;
+}
 
 a, .btn-link {
     color: #0366d6;
 }
 
-
 .btn-lesson {
-    color:  lightgray;
-    background-color: darkslategrey;
     min-width: 350px;
     max-width: 600px;
+}
+
+.btn-dark {
+    color:  lightgray;
+    background-color: darkslategrey;
     border-color: black;
     border-style: solid;
     border-width: 1px;
@@ -40,11 +48,11 @@ a, .btn-link {
     padding: 10px 10px 10px 10px;
 }
 
-.btn-lesson:hover {
+.btn-dark:hover {
     background-color: steelblue;
 }
 
-.btn-lesson:focus {
+.btn-dark:focus {
     border-color: orange;
     border-width: 3px;
     box-shadow: none;
@@ -190,15 +198,7 @@ a, .btn-link {
 }
 
 
-
-
-
-
-
 /*------------- User-Button --------------*/
-.createProfile {
-    float: right;
-}
 
 .fas-user {
     font-size: 40px;
@@ -232,14 +232,14 @@ a, .btn-link {
 }
 /*----------------------------------------*/
 /*All adjustments for pop-up-create-profile*/
-.testbody {
-    margin: 0;
+.form-box {
+    margin: 20px 0px 0px 0px;
     padding: 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
 
-.testbody::before, .testbody::after {
+.form-box::before, .form-box::after {
     box-sizing: border-box;
 }
 
@@ -254,7 +254,8 @@ a, .btn-link {
     width: 360px;
     padding: 4rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
+    background: rgb(139 199 165);
 }
 
 .form__title {
@@ -279,7 +280,7 @@ a, .btn-link {
     border-radius: .5rem;
     outline: none;
     padding: 1rem;
-    background: none;
+    background-color: rgb(226 235 230);
     z-index: 1;
 }
 
@@ -288,12 +289,12 @@ a, .btn-link {
     left: 1rem;
     top: 1rem;
     padding: 0 .25rem;
-    background-color: #fff;
+    background-color: transparent;
     color: var(--input-color);
     font-size: var(--normal-font-size);
     transition: .3s;
 }
-
+/*
 .form__button {
     display: block;
     margin-left: auto;
@@ -307,7 +308,19 @@ a, .btn-link {
     cursor: pointer;
     transition: .3s;
 }
-
+    */
+.form__button {
+    color: lightgray;
+    background-color: darkslategrey;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
 .form__button:hover {
     box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
 }
