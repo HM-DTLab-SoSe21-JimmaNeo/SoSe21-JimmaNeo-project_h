@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace SEIIApp.Client.Service
 {
-    public class LessonDefinitionBackendAccessService
+    public class ProfileDefinitionBackendAccessService
     {
         private HttpClient HttpClient { get; set; }
 
-        public LessonDefinitionBackendAccessService(HttpClient client)
+        public ProfileDefinitionBackendAccessService(HttpClient client)
         {
             this.HttpClient = client;
         }
