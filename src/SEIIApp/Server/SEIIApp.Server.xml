@@ -33,33 +33,33 @@
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetLessonProfil(System.Int32)">
             <summary>
-            Return the lesson with the given id.
+            Return the lessonprofil with the given id.
             </summary>
             <param name="lessonProfilId"></param>
             <returns></returns>
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetAllLessonsProfilForLessonNumber(System.Int32)">
             <summary>
-            Returns all lessons names and ids.
+            Returns all lessonprofils for a lessonNumber.
             </summary>
             <returns></returns>
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetAllLessonsProfil">
             <summary>
-            Returns all lessonprofils for a lessonNumber.
+            Returns all lessonprofils.
             </summary>
             <returns></returns>
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.AddOrUpdateLessonProfil(SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto)">
             <summary>
-            Adds or updates a lesson definition.
+            Adds or updates a lessonprofil definition.
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.DeleteLessonProfil(System.Int32)">
             <summary>
-            Removes a lesson definition.
+            Removes a lessonprofil definition.
             </summary>
             <param name="lessonProfilId"></param>
             <returns></returns>

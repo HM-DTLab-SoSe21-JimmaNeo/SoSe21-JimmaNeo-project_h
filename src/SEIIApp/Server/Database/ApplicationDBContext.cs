@@ -21,6 +21,10 @@ namespace SEIIApp.Server.Data
             .HasIndex(u => u.lessonNumber)
             .IsUnique();
 
+            builder.Entity<ProfilDefinition>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+
             builder.Entity<LessonProfilDefinition>()
            .HasIndex(u => new { u.Id, u.lessonNumber })
            .IsUnique();
