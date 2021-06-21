@@ -33,7 +33,7 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Return the lesson with the given id.
+        /// Return the lessonprofil with the given id.
         /// </summary>
         /// <param name="lessonProfilId"></param>
         /// <returns></returns>
@@ -51,15 +51,9 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Returns all lessons names and ids.
+        /// Returns all lessonprofils for a lessonNumber.
         /// </summary>
         /// <returns></returns>
-        //public ActionResult<ProfilDefinitionBaseDto[]> GetAllQuizes()
-        //{
-        //    var quizzes = ProfilDefinitionService.GetAllProfiles();
-        //    var mappedQuizzes = Mapper.Map<ProfilDefinitionBaseDto[]>(quizzes);
-        //    return Ok(mappedQuizzes);
-        //}
         [HttpGet("AllHelpingHandForLesson/{lessonNumber}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -74,7 +68,7 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Returns all lessonprofils for a lessonNumber.
+        /// Returns all lessonprofils.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -90,7 +84,7 @@ namespace SEIIApp.Server.Controllers
 
 
         /// <summary>
-        /// Adds or updates a lesson definition.
+        /// Adds or updates a lessonprofil definition.
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -133,7 +127,7 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Removes a lesson definition.
+        /// Removes a lessonprofil definition.
         /// </summary>
         /// <param name="lessonProfilId"></param>
         /// <returns></returns>
