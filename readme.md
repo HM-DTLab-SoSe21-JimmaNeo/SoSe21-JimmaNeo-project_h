@@ -2,8 +2,7 @@
 
 Dieses Projekt ist ein Standard-Vorlageprojekt, das eine funktionierende WebAssembly-Anwendung, die auf .NET Core gehostet ist, zeigt. Die Beispiel-Anwendung enthält einen Zugriff auf APIs.
 
-Überschrift 1 = PressRelease
-Fügen Sie dem Abschnitt lesbar Ihr PressRelease hinzu.
+PressRelease
 
 Pressemitteilung
 E-Learning Plattform für medizinisches Fachpersonal in Äthiopien
