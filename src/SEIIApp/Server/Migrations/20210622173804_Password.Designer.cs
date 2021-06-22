@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SEIIApp.Server.Data;
 
 namespace SEIIApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210622173804_Password")]
+    partial class Password
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace SEIIApp.Server.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Passwort")
                         .HasColumnType("longtext");
 
                     b.Property<string>("UrlImage")
