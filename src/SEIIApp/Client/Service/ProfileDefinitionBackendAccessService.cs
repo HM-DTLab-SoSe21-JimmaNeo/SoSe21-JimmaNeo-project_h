@@ -19,24 +19,23 @@ namespace SEIIApp.Client.Service
             this.HttpClient = client;
         }
 
-        private string GetLessonDefinitionUrl()
+        public string GetProfileDefinitionUrl()
         {
-            return "api/lessondefinitions";
+            return "api/profildefinitions";
         }
-        private string GetLessonDefinitionWithId(int id)
+        private string GetProfileDefinitionWithEmail(string email)
         {
-            return $"{GetLessonDefinitionUrl()}/{id}";
-        }
-        public async Task<LessonDefinitionDto[]> GetLessonOverview()
-        {
-            return await HttpClient.GetFromJsonAsync<LessonDefinitionDto[]>(GetLessonDefinitionUrl());
+            return $"{GetProfileDefinitionUrl()}/{email}";
         }
 
-        public async Task<LessonDefinitionDto> GetLessonById(int id)
+        public async Task AddProfile(ProfilDefinitionDto profile)
         {
-            return await HttpClient.GetFromJsonAsync<LessonDefinitionDto>(GetLessonDefinitionWithId(id));
+                await HttpClient.PostAsJsonAsync(GetProfileDefinitionUrl(), profile);
         }
 
-
+        public async Task<ProfilDefinitionDto> GetProfileByEmail(string email)
+        {
+           return await HttpClient.GetFromJsonAsync<ProfilDefinitionDto>(GetProfileDefinitionWithEmail(email));
+        }
     }
 }

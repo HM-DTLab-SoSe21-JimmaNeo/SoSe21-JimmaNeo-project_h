@@ -1,5 +1,6 @@
 ﻿@page "/"
 
+@inject Service.ProfileDefinitionBackendAccessService ProfileDefinitionService
 @inject NavigationManager navigation
 
 @if (_currentUserStatus == _userStatus.REGISTRATION)
@@ -10,40 +11,60 @@
                 <h1 class="display-4 step-up-color">Register</h1>
                 <div style="padding-top:20px; padding-bottom:10px;">
                     <div class="form__div">
-                        <input type="text" class="form__input" placeholder="First Name" />
+                        <input type="text" class="form__input" placeholder="First Name"  @bind="FirstName"/>
                         <label for="" class="form__label">First Name</label>
                     </div>
 
                     <div class="form__div">
-                        <input type="text" class="form__input" placeholder="Last Name" />
+                        <input type="text" class="form__input" placeholder="Last Name" @bind="LastName"/>
                         <label for="" class="form__label">Last Name</label>
                     </div>
 
                     <div class="form__div">
-                        <input type="text" class="form__input" placeholder="Email" />
+                        <input type="text" class="form__input" placeholder="Email"  @bind="Email"/>
                         <label for="" class="form__label">Email</label>
                     </div>
 
                     <div class="form__div">
-                        <input type="password" class="form__input" placeholder="Password" />
+                        <input type="password" class="form__input" placeholder="Password" @bind="Password"/>
                         <label for="" class="form__label">Password</label>
                     </div>
 
                     <div class="form__div">
-                        <input type="password" class="form__input" placeholder="Repeat Password" />
+                        <input type="password" class="form__input" placeholder="Repeat Password" @bind="RepeatPassword"/>
                         <label for="" class="form__label">Repeat Password</label>
                     </div>
                 </div>
 
-                <input type="submit" class="btn btn-dark width-40pc" value="Submit" />
+                <input class="btn btn-dark width-40pc" value="Submit" @onclick="AddProfile" />
                 <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" @onclick="showLoginForm">
                     <i>Back to Login</i>
                 </button>
             </form>
         </div>
     </div>
-}
 
+    @if(error)
+    {
+        <div>
+            Passwords are not Equal!
+        </div>
+    }
+}
+@if (_currentUserStatus == _userStatus.REGISTRATION_SUCCESSFUL)
+{
+<div class="form-box">
+    <div class="l-form">
+        <form class="profileForm" action="/" method="post">
+            <h1 class="display-4 step-up-color">Registration was successfull!!</h1>
+
+            <button type="button" class="btn btn-dark width-40pc" @onclick="showLoginForm">
+                Go to Login
+            </button>
+        </form>
+    </div>
+</div>
+}
 @if(_currentUserStatus == _userStatus.LOGGED_OUT)
 { <!---------------LOGIN FORM----------->
     <div class="form-box">
@@ -53,17 +74,16 @@
 
                 <div style="padding-top:20px; padding-bottom:10px;">
                     <div class="form__div">
-                        <input type="text" class="form__input" placeholder="Email" @bind="email" />
+                        <input type="text" class="form__input" placeholder="Email" @bind="Email"/>
                         <label for="" class="form__label">E-Mail</label>
                     </div>
 
                     <div class="form__div">
-                        <input type="text" class="form__input" placeholder="Password" />
+                        <input type="text" class="form__input" placeholder="Password" @bind="Password"/>
                         <label for="" class="form__label">Password</label>
                     </div>
                 </div>
-                @*<input class="form__button" value="Sign In" @onclick="NavigateToHome" />*@
-                <button type="button" class="btn btn-dark width-40pc" @onclick="performLogin">
+                <button type="button" class="btn btn-dark width-40pc" @onclick="Login">
                     Submit
                 </button>
                 <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" @onclick="showRegistrationForm">
@@ -77,24 +97,67 @@
 
 @code {
 
-    private string email;
-
-    public string Email { get; set; }
-
     private enum _userStatus
-        {
-            LOGGED_OUT,
-            LOGGED_IN,
-            REGISTRATION,
-            REGISTRATION_SUCCESSFUL
-        }
+    {
+        LOGGED_OUT,
+        LOGGED_IN,
+        REGISTRATION,
+        REGISTRATION_SUCCESSFUL
+    }
+
+    private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto Profile { get; set; }
+    private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto ProfileInformations { get; set; }
+    private string FirstName { get; set; }
+    private string LastName { get; set; }
+    private string Email { get; set; }
+    private string Password { get; set; }
+    private string RepeatPassword { get; set; }
 
     private _userStatus _currentUserStatus = _userStatus.LOGGED_OUT;
+    private bool error = false;
 
-    @*public void RegisterOrLogin()
+
+    private void CreateProfile()
     {
-        change = !change;
-    }*@
+        ProfileInformations = new SEIIApp.Shared.DomainTdo.ProfilDefinitionDto();
+        if (_currentUserStatus == _userStatus.REGISTRATION_SUCCESSFUL)
+        {
+            ProfileInformations.FirstName = FirstName;
+            ProfileInformations.LastName = LastName;
+            ProfileInformations.Email = Email;
+            ProfileInformations.Password = Password;
+            ProfileInformations.ConfirmPassword = RepeatPassword;
+        }
+        else if (_currentUserStatus == _userStatus.LOGGED_OUT)
+        {
+            ProfileInformations.Email = Email;
+            ProfileInformations.Password = Password;
+        }
+    }
+
+    private  async Task AddProfile()
+    {
+        RegistrationSuccess();
+        CreateProfile();
+        if (Password == RepeatPassword)
+        {
+            await ProfileDefinitionService.AddProfile(ProfileInformations);
+        }
+        else
+        {
+            error = !error;
+        }
+    }
+
+    private async Task Login()
+    {
+        CreateProfile();
+        Profile = await ProfileDefinitionService.GetProfileByEmail(ProfileInformations.Email);
+        if ("123456" == ProfileInformations.Password)
+        {
+            GoToHomepage();
+        }
+    }
 
     private void showLoginForm()
     {
@@ -106,9 +169,13 @@
         _currentUserStatus = _userStatus.REGISTRATION;
     }
 
-    public void performLogin()
+    private void RegistrationSuccess()
     {
-        @*TODO: Check login data against database*@
+        _currentUserStatus = _userStatus.REGISTRATION_SUCCESSFUL;
+    }
+
+    public void GoToHomepage()
+    {
         _currentUserStatus = _userStatus.LOGGED_IN;
         navigation.NavigateTo("/home");
     }

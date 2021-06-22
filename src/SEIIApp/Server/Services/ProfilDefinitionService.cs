@@ -51,6 +51,11 @@ namespace SEIIApp.Server.Services
         {
             return GetQueryableForProfilDefinitions().Where(profil => profil.Id == id).FirstOrDefault();
             //FirstOrDefault liefert das erste gefundene Objekt oder null zurück
+        }        
+        public ProfilDefinition GetProfilWithEmail(string email)
+        {
+            return GetQueryableForProfilDefinitions().Where(profil => profil.Email == email).FirstOrDefault();
+            //FirstOrDefault liefert das erste gefundene Objekt oder null zurück
         }
 
         /// <summary>

@@ -64,11 +64,11 @@
             <param name="lessonProfilId"></param>
             <returns></returns>
         </member>
-        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetProfil(System.Int32)">
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetProfilByEmail(System.String)">
             <summary>
-            Return the profil with the given id.
+            Return the profil with the given email.
             </summary>
-            <param name="id"></param>
+            <param name="email"></param>
             <returns></returns>
         </member>
         <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetAllProfile">

@@ -27,7 +27,7 @@ namespace SEIIApp.Client.Service
         {
             return $"{GetLessonDefinitionUrl()}/{id}";
         }
-        public async Task<LessonDefinitionDto[]> GetLessonOverview() 
+        public async Task<LessonDefinitionDto[]> GetLessonOverview()
         {
             return await HttpClient.GetFromJsonAsync<LessonDefinitionDto[]>(GetLessonDefinitionUrl());
         }
@@ -36,7 +36,5 @@ namespace SEIIApp.Client.Service
         {
             return await HttpClient.GetFromJsonAsync<LessonDefinitionDto>(GetLessonDefinitionWithId(id));
         }
-
-
     }
 }

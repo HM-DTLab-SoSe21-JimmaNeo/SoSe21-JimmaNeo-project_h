@@ -22,6 +22,7 @@ namespace SEIIApp.Server.Controllers
     [Route("api/profildefinitions")]
     public class ProfilDefinitionController : ControllerBase
     {
+        private const string V = "{email:string}";
 
         private ProfilDefinitionService ProfilDefinitionService { get; set; }
         private IMapper Mapper { get; set; }
@@ -37,13 +38,31 @@ namespace SEIIApp.Server.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfilByID([FromRoute] int id)
+        //{
+        //    var profil = ProfilDefinitionService.GetProfilWithId(id);
+        //    if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
+
+        //    var mappedProfil = Mapper.Map<ProfilDefinitionDto>(profil);
+        //    return Ok(mappedProfil);
+        //}
+
+        /// <summary>
+        /// Return the profil with the given email.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        [HttpGet("{email}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfil([FromRoute] int id)
+        public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfilByEmail([FromRoute] string email)
         {
-            var profil = ProfilDefinitionService.GetProfilWithId(id);
+            var profil = ProfilDefinitionService.GetProfilWithEmail(email);
             if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
 
             var mappedProfil = Mapper.Map<ProfilDefinitionDto>(profil);
@@ -74,7 +93,7 @@ namespace SEIIApp.Server.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<ProfilDefinitionDto> AddOrUpdateProfil([FromBody] ProfilDefinitionDto model)
