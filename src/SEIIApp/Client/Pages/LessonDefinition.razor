@@ -1,6 +1,7 @@
 ﻿@page "/lesson/{LessonId:int}"
 
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
+@inject Service.LessonProfileDefinitionBackendAccessService LessonProfileDefinitionService
 @inject NavigationManager navigation
 @* ------------- Display Helping Hands on the top right  -------------------*@
 <div class="float-right">
@@ -15,7 +16,7 @@
     }
     else
     {
-        <button type="button" class="btn-add-helper" @onclick="() => addUserToHelpingHands()">
+        <button type="button" class="btn-add-helper" @onclick="() => removeUserFromHelpingHands()">
             <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65" />
             <br />
             <span style="font-size:x-small">Click to become a helping hand!</span>
@@ -23,24 +24,32 @@
     }
 </div>
 @* ------------- Display Helpers on the top right  -------------------*@
-@if (!buttonPressed)
+
+@if (!showHelpersButtonPressed)
 {
     <div class="float-right">
-        <button class="btn-add-helper" @onclick="() => sendMessageTo()">
-            <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
+        <button class="btn-add-helper" @onclick="() => getLessonHelpersProfiles()">
+            <img src="css\images\LeftArrow.png" alt="show helping hands" class="rounded-circle" height="65" />
             <br />
-            <span class="name">Nuru</span>
-        </button>
-        <button class="btn-add-helper">
-            <img src="css\images\Salim.png" alt="Salim" class="rounded-circle" height="65" />
-            <br />
-            <span class="name">Salim</span>
+            <span class="ShowHelpers">Show helpers</span>
         </button>
     </div>
 }
 else
 {
     <div class="float-right">
+        <button class="btn-add-helper" @onclick="() => hideLessonHelpersProfiles()">
+            <img src="css\images\RightArrow.png" alt="hide helping hands" class="rounded-circle" height="65" />
+            <br />
+            <span class="HideHelpers">Hide helpers</span>
+        </button>
+    </div>
+}
+
+
+@if (showHelpersButtonPressed)
+{
+    <div class="float-right">
         <button class="btn-add-helper" @onclick="() => sendMessageTo()">
             <img src="css\images\Nuru.png" alt="Nuru" class="rounded-circle" height="65" />
             <br />
@@ -51,13 +60,24 @@ else
             <br />
             <span class="name">Salim</span>
         </button>
-        <button class="btn-add-helper">
-            <img src="css\images\Kamali.png" alt="Kamali" class="rounded-circle" height="65" />
-            <br />
-            <span class="name">Kamali</span>
-        </button>
     </div>
+
+    @if (LessonsProfiles?.Length > 0)
+    {
+        @foreach (var lessonProfile in LessonsProfiles)
+        {
+            <div class="float-right">
+                <button class="btn-add-helper">
+                    @(lessonProfile.lessonNumber)
+                    @(lessonProfile.Id)
+                </button>
+            </div>
+        }
+    }
 }
+
+
+
 
 @* ------------- Display Content of the Lesson -------------------*@
 @if (ExistingLesson != null)
@@ -80,11 +100,13 @@ else
     public int LessonId { get; set; }
 
     private SEIIApp.Shared.DomainTdo.LessonDefinitionDto ExistingLesson { get; set; }
+    private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto[] LessonsProfiles { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
         if (LessonId != 0)
         {
+
             ExistingLesson = await LessonDefinitionService.GetLessonById(LessonId);
         }
         await base.OnParametersSetAsync();
@@ -93,6 +115,7 @@ else
 
     string myPicture = "";
     bool buttonPressed = false;
+    bool showHelpersButtonPressed = false;
     string pressedStyle = "";
 
     void addUserToHelpingHands()
@@ -101,6 +124,21 @@ else
 
     }
 
+    void removeUserFromHelpingHands()
+    {
+        buttonPressed = !buttonPressed;
+
+    }
+
+    private async Task getLessonHelpersProfiles()
+    {
+        showHelpersButtonPressed = !showHelpersButtonPressed;
+        LessonsProfiles = await LessonProfileDefinitionService.GetLessonProfileDefinitionWithLessonNumber(LessonId);
+    }
+    private void hideLessonHelpersProfiles()
+    {
+        showHelpersButtonPressed = !showHelpersButtonPressed;
+    }
     void sendMessageTo()
     {
 

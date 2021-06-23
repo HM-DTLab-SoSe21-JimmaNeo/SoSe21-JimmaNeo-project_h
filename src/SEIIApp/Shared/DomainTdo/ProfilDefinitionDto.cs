@@ -18,7 +18,7 @@ namespace SEIIApp.Shared.DomainTdo
         [Required(ErrorMessage = "LastName is required")]
         [StringLength(16, ErrorMessage = "Must be between 3 and 16 characters", MinimumLength = 3)]
         public string LastName { get; set; }
-      
+
         [Required(ErrorMessage = "Email is required")]
         [StringLength(20, ErrorMessage = "Must be between 5 and 20 characters", MinimumLength = 5)]
         // [RegularExpression("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$", ErrorMessage = "Must be a valid email")]
@@ -30,7 +30,7 @@ namespace SEIIApp.Shared.DomainTdo
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]
         //[DataType(DataType.Password)]
         public string Password { get; set; }
-
+  
         [Required(ErrorMessage = "Confirm Password is required")]
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]
         //[DataType(DataType.Password)]
