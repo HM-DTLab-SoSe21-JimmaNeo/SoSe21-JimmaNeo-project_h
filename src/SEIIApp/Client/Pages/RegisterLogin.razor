@@ -51,6 +51,7 @@
         </div>
     }
 }
+
 @if (_currentUserStatus == _userStatus.REGISTRATION_SUCCESSFUL)
 {
 <div class="form-box">
@@ -65,6 +66,7 @@
     </div>
 </div>
 }
+
 @if(_currentUserStatus == _userStatus.LOGGED_OUT)
 { <!---------------LOGIN FORM----------->
     <div class="form-box">
@@ -96,8 +98,7 @@
 }
 
 @code {
-
-    private enum _userStatus
+    public enum _userStatus
     {
         LOGGED_OUT,
         LOGGED_IN,
@@ -113,7 +114,7 @@
     private string Password { get; set; }
     private string RepeatPassword { get; set; }
 
-    private _userStatus _currentUserStatus = _userStatus.LOGGED_OUT;
+    public _userStatus _currentUserStatus = = _userStatus.LOGGED_OUT;
     private bool error = false;
 
 
@@ -153,7 +154,7 @@
     {
         CreateProfile();
         Profile = await ProfileDefinitionService.GetProfileByEmail(ProfileInformations.Email);
-        if ("123456" == ProfileInformations.Password)
+        if (Profile.Password == ProfileInformations.Password)
         {
             GoToHomepage();
         }
@@ -174,7 +175,7 @@
         _currentUserStatus = _userStatus.REGISTRATION_SUCCESSFUL;
     }
 
-    public void GoToHomepage()
+    private void GoToHomepage()
     {
         _currentUserStatus = _userStatus.LOGGED_IN;
         navigation.NavigateTo("/home");

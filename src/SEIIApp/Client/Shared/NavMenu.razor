@@ -52,6 +52,7 @@
     </ul>
 </div>
 
+@if (Pages.RegisterLogin._userStatus.LOGGED_IN)
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">

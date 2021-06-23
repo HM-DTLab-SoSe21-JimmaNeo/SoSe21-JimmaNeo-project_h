@@ -28,12 +28,12 @@ namespace SEIIApp.Shared.DomainTdo
 
         [Required(ErrorMessage = "Password is required")]
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Confirm Password is required")]
         [StringLength(30, ErrorMessage = "Must be between 5 and 30 characters", MinimumLength = 5)]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
