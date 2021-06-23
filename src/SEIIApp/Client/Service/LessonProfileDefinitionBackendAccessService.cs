@@ -33,7 +33,7 @@ namespace SEIIApp.Client.Service
         /// </summary>
         private string GetLPDUrlbyLessonNumber(int id)
         {
-            return $"AllHelpingHandForLesson/{id}";
+            return $"{GetLessonProfileDefinitionUrl()}/AllHelpingHandForLesson/{id}";
         }
 
         /// <summary>
