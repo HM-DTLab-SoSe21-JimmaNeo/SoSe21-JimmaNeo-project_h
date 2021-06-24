@@ -97,8 +97,11 @@ Das Backend ist wie das Frontend mit ASP.NET Core 5.0 in C# realisiert. Es wurde
 Überschrift 4 = Team und Ansprechpartner
 Beschreiben Sie kurz Ihr Team und wer mit einer E-Mail-Adresse als Ansprechpartner fungieren kann (formhalber).
 
-Aufgaben Julia Helmer
+Julia Helmer
 Frontend: Design, Erstausarbeitung der Storyboards zur gemeinsamen Fertigstellung, Press-Release, Erstellung der Präsentation für den 11.06., Wireframes: User markiert sich als helping hand und bekommt Anfragen, Erstentwurf FAQ
+
+David Röhr
+Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
 
 
 Überschrift 5 = Anlagen
