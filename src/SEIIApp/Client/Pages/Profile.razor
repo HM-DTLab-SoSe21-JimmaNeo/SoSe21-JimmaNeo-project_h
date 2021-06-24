@@ -3,69 +3,53 @@
 <h1 class="display-3 step-up-color">Your Profile</h1>
 <h2 class="display-4 step-up-color"></h2>
 
-<div>
-    <h3>Upload a profile picture</h3>
+<!--------------------- PLAYGROUND ------------------------------------->
+<h3>Update your profile information </h3>
 
-
-    <h3>Tell us about yourself</h3>
-</div>
-
-<div>
-    <h3></h3>
-
-
-</div>
-
-<div class="form-box">
-    <div class="l-form">
-        <form class="profileForm" action="/" method="post">
-            <h1 class="display-4 step-up-color">Change or update basic information:</h1>
-            <div style="padding-top:20px; padding-bottom:10px;">
+<div class="green-box">
+    <div class="profile-data-div">
+        <form action="/" method="post">
+            <div class="profiel-change-width" style="padding-bottom:10px;">
                 <div class="form__div">
-                    <input type="text" class="form__input" placeholder="First Name" />
-                    <label for="" class="form__label">First Name</label>
+                    <input type="text" id="fname" class="form__input profile-elements-width" placeholder="First Name" />
+                    <label for="fname" class="form__label">First Name</label>
+                </div>
+                <div class="form__div">
+                    <input type="text" id="lname" class="form__input profile-elements-width" placeholder="Last Name" />
+                    <label for="lname" class="form__label">Last Name</label>
                 </div>
 
                 <div class="form__div">
-                    <input type="text" class="form__input" placeholder="Last Name" />
-                    <label for="" class="form__label">Last Name</label>
+                    <input type="text" id="email" class="form__input profile-elements-width" placeholder="Email" />
+                    <label for="email" class="form__label">Email</label>
                 </div>
-
                 <div class="form__div">
-                    <input type="text" class="form__input" placeholder="Email" />
-                    <label for="" class="form__label">Email</label>
-                </div>
-
-                <div class="form__div">
-                    <input type="password" class="form__input" placeholder="Password" />
-                    <label for="" class="form__label">Password</label>
-                </div>
-
-                <div class="form__div">
-                    <input type="password" class="form__input" placeholder="Repeat Password" />
-                    <label for="" class="form__label">Repeat Password</label>
+                    <input type="password" id="pw" class="form__input profile-elements-width" placeholder="Password" />
+                    <label for="pw" class="form__label">Password</label>
                 </div>
             </div>
-
-            <input type="submit" class="btn btn-dark width-40pc" value="Submit" />
-            <button type="button" class="btn btn-dark float-right bg-transparent dark_text width-40pc" >
-                <i>Back to Login</i>
-            </button>
+            <input type="submit" class="btn btn-dark" value="Submit Changes" />
+        </form>
+    </div>
+    <div class="profile-img-div">
+        <img src="css/images/Nuru.png" class="profile-img" />
+        <p>Change profile picture:</p>
+        <form enctype="multipart/form-data" method="post">
+            <dl>
+                <dt>
+                    <label asp-for="FileUpload.FormFile"></label>
+                </dt>
+                <dd>
+                    <input asp-for="FileUpload.FormFile" type="file">
+                    <span asp-validation-for="FileUpload.FormFile"></span>
+                    <input asp-page-handler="Upload" class="btn btn-dark" type="submit" value="Upload File" />
+                </dd>
+            </dl>
         </form>
     </div>
 </div>
 
-@*
-<div class="createProfile">
-    <button type="button" class="btn btn-primary btn-user" @onclick="() => ShowCreateProfile()">
-        <i class="fas-user fas fa-user"></i>
-    </button>
-</div>
-*@
-
-
-   
 
 @code {
-    
+
 }
