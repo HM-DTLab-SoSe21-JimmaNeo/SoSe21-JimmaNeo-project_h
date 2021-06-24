@@ -1,9 +1,10 @@
 ﻿@page "/"
 
-@inject Service.ProfileDefinitionBackendAccessService ProfileDefinitionService
+@inject Service.ProfileDefinitionBackendAccessService ProfileDefinitionService 
+@inject Service.LoggedInStates States
 @inject NavigationManager navigation
 
-@if (_currentUserStatus == _userStatus.REGISTRATION)
+@if (States.CurrentState == Service._userStatus.REGISTRATION)
 {<!---------------REGISTRATION FORM----------->
     <div class="form-box">
         <div class="l-form">
@@ -52,7 +53,7 @@
     }
 }
 
-@if (_currentUserStatus == _userStatus.REGISTRATION_SUCCESSFUL)
+@if (States.CurrentState == Service._userStatus.REGISTRATION_SUCCESSFUL)
 {
 <div class="form-box">
     <div class="l-form">
@@ -67,7 +68,7 @@
 </div>
 }
 
-@if(_currentUserStatus == _userStatus.LOGGED_OUT)
+@if(States.CurrentState == Service._userStatus.LOGGED_OUT)
 { <!---------------LOGIN FORM----------->
     <div class="form-box">
         <div class="l-form">
@@ -97,15 +98,7 @@
 
 }
 
-@code {
-    public enum _userStatus
-    {
-        LOGGED_OUT,
-        LOGGED_IN,
-        REGISTRATION,
-        REGISTRATION_SUCCESSFUL
-    }
-
+@code { 
     private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto Profile { get; set; }
     private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto ProfileInformations { get; set; }
     private string FirstName { get; set; }
@@ -114,14 +107,13 @@
     private string Password { get; set; }
     private string RepeatPassword { get; set; }
 
-    public _userStatus _currentUserStatus = = _userStatus.LOGGED_OUT;
     private bool error = false;
 
 
     private void CreateProfile()
     {
         ProfileInformations = new SEIIApp.Shared.DomainTdo.ProfilDefinitionDto();
-        if (_currentUserStatus == _userStatus.REGISTRATION_SUCCESSFUL)
+        if (States.CurrentState == Service._userStatus.REGISTRATION_SUCCESSFUL)
         {
             ProfileInformations.FirstName = FirstName;
             ProfileInformations.LastName = LastName;
@@ -129,7 +121,7 @@
             ProfileInformations.Password = Password;
             ProfileInformations.ConfirmPassword = RepeatPassword;
         }
-        else if (_currentUserStatus == _userStatus.LOGGED_OUT)
+        else if (States.CurrentState == Service._userStatus.LOGGED_OUT)
         {
             ProfileInformations.Email = Email;
             ProfileInformations.Password = Password;
@@ -162,22 +154,22 @@
 
     private void showLoginForm()
     {
-        _currentUserStatus = _userStatus.LOGGED_OUT;
+        States.CurrentState = Service._userStatus.LOGGED_OUT;
     }
 
     private void showRegistrationForm()
     {
-        _currentUserStatus = _userStatus.REGISTRATION;
+        States.CurrentState = Service._userStatus.REGISTRATION;
     }
 
     private void RegistrationSuccess()
     {
-        _currentUserStatus = _userStatus.REGISTRATION_SUCCESSFUL;
+        States.CurrentState = Service._userStatus.REGISTRATION_SUCCESSFUL;
     }
 
     private void GoToHomepage()
     {
-        _currentUserStatus = _userStatus.LOGGED_IN;
+        States.CurrentState = Service._userStatus.LOGGED_IN;
         navigation.NavigateTo("/home");
     }
 }

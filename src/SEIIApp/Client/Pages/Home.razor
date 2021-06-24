@@ -4,7 +4,7 @@
 
 @{ var numRequests = 2; }
 <div class="float-right">
-    <button type="button" class="step-up-color btn-envelope btn" @onclick="() => goToMessages()">
+    <button type="button" class="step-up-color btn-envelope btn" @onclick="() => GoToMessages()">
         <i class="fas fa-envelope envelope-style"></i>
         <span class="num-request-style">@numRequests</span>
     </button>
@@ -48,7 +48,7 @@
         navigation.NavigateTo("/lesson/" + lesson.lessonNumber);
     }
 
-    private void goToMessages()
+    private void GoToMessages()
     {
         navigation.NavigateTo("/Messages/");
     }
