@@ -104,7 +104,7 @@ David Röhr
 Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
 
 Daniel Klaussner
-Pressrelease Erstentwurf, FAQ, Anwendungsbeschreibung
+Pressrelease Erstentwurf,gemeinsame Erstellung der Storyboards, FAQ, Anwendungsbeschreibung
 
 **5.Anlagen**
 Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
