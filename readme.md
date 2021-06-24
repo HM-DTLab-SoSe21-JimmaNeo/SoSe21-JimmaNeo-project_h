@@ -104,7 +104,7 @@ David Röhr
 Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
 
 
-5.Anlagen
+**5.Anlagen**
 Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
 Also mindestens Storyboard, FAQ, PressRelease, usw.
 (In Md kann man Verlinkungen einfügen, die auf ein Unterverzeichnis im Repository verweisen).
