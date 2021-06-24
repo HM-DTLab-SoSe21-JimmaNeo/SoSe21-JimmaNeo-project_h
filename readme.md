@@ -106,6 +106,9 @@ Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützun
 Daniel Klaussner
 Pressrelease Erstentwurf,gemeinsame Erstellung der Storyboards, FAQ, Anwendungsbeschreibung
 
+Max Beider
+Backend: Unterstützung bei der Erstellung der Storyboards, Erstellung des Datenmodells, Logik im Backend, Erstellung und Verbindung mit MySQL AWS-Datenbank, Migrations
+
 **5.Anlagen**
 Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
 Also mindestens Storyboard, FAQ, PressRelease, usw.
