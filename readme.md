@@ -103,6 +103,8 @@ Frontend: Design, Erstausarbeitung der Storyboards zur gemeinsamen Fertigstellun
 David Röhr
 Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
 
+Daniel Klaussner
+Pressrelease Erstentwurf, FAQ, Anwendungsbeschreibung
 
 **5.Anlagen**
 Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
