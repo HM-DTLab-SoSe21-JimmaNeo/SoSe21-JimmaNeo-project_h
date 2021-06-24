@@ -2,7 +2,7 @@
 
 Dieses Projekt ist ein Standard-Vorlageprojekt, das eine funktionierende WebAssembly-Anwendung, die auf .NET Core gehostet ist, zeigt. Die Beispiel-Anwendung enthält einen Zugriff auf APIs.
 
-PressRelease
+**1. PressRelease**
 
 Pressemitteilung
 E-Learning Plattform für medizinisches Fachpersonal in Äthiopien
@@ -87,14 +87,14 @@ Anschließend färbt sich der Hintergrund von „Messages“ in einen etwas hell
 
 
 
-Überschrift 3 = Softwarearchitektur
+**3. Softwarearchitektur**
 Beschreiben Sie die Softwarearchitektur. Achten Sie insbesondere auf die zwei Komponenten (WebApp und Server bzw. Frontend und Backend). Stellen Sie sich die Frage, was Sie jemanden über die Softwarestruktur erzählen würden, wenn Sie diese jemanden erklären müssten. Z.B. die Verwendung von Services im Frontend und Backend. 
 
 Das Front End wurde als ASP.NET Core Web App mit C#, HTML und CSS realisiert. Hierbei kommen Razor Pages für die Darstellung einzelner Webpages zur Anwendung. Diese bestehen aus einer Mischung aus HTML und C#. C# sorgt hierbei für die Dynamik der Webpage. Icons wurden aus der Bibliothek von Font Awesome verwendet. Für das Styling einiger Elemente auf den Webpages wurde das Open Source Toolkit Bootstrap genutzt. Das Helpinghand-Symbol wurde beispielhaft aus Grafiken von Storyboardthat.com erstellt. Außerdem stammen die Beispielbilder der Personen von storyboardthat.com. Die Rechte sollten vor der Veröffentlichung geklärt werden bzw. für die Veröffentlichung erlaubte Grafiken verwendet werden.
 
 Das Backend ist wie das Frontend mit ASP.NET Core 5.0 in C# realisiert. Es wurden Services registriert und benutzt, welche die Logik kapseln. Dazu zählen ein LessonDefinitionService, ProfilDefinitionService sowie der LessonProfilDefinitionService. Weiterhin wird eine DbContext-Unterklasse mit dem Namen ApplicationDbContext als bereichsbezogener Dienst im ASP.NET Core-Anwendungsdienstanbieter registriert. Der Kontext ist so konfiguriert, dass man sich mit einer MySQL AWS Datenbank verbindet, wo Daten gespeichert werden.  Das Datenbankschema wurde durch die Verwendung von Migrations inkrementell aktualisiert, um es mit dem Datenmodell der Anwendung synchron zu halten und zugleich die vorhandenen Daten in der Datenbank beizubehalten. Für das mappen der Klassen die zum Transfer der Daten und der Klassen, die zum Speichern der Daten in der Datenbank bestimmt sind, ist der AutoMapper zuständig. 
 
-Überschrift 4 = Team und Ansprechpartner
+**4. Team und Ansprechpartner**
 Beschreiben Sie kurz Ihr Team und wer mit einer E-Mail-Adresse als Ansprechpartner fungieren kann (formhalber).
 
 Julia Helmer
@@ -103,8 +103,10 @@ Frontend: Design, Erstausarbeitung der Storyboards zur gemeinsamen Fertigstellun
 David Röhr
 Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
 
+Daniel Klaussner
+Pressrelease Erstentwurf,gemeinsame Erstellung der Storyboards, FAQ, Anwendungsbeschreibung
 
-Überschrift 5 = Anlagen
+**5.Anlagen**
 Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
 Also mindestens Storyboard, FAQ, PressRelease, usw.
 (In Md kann man Verlinkungen einfügen, die auf ein Unterverzeichnis im Repository verweisen).
