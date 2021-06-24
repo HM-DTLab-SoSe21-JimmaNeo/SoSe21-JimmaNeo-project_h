@@ -30,7 +30,7 @@ Um „StepUp“ nutzen zu können benötigt jeder Benutzer ein Profil. Der Benut
 Ist dem Benutzer bereits ein Benutzerprofil zugewiesen, muss sich dieser mit seinen Logindaten einloggen. Zum erfolgreichen Login wird die E-Mail-Adresse, mit welcher sich der Benutzer in der App registriert hat und das dazugehörige Password des Benutzers benötigt. Wie im nachfolgenden Bild zu sehen, muss der Benutzer die richtigen Logindaten eingeben und anschließend auf „Submit“ tippen, um sich erfolgreich anzumelden.
 [](https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Logindaten.JPG)
 
-**2.1.2 Ein neues Benutzerprofil erstellen **
+**2.1.2 Ein neues Benutzerprofil erstellen**
 
 Den Benutzern ist es selbstständig möglich ein neues Benutzerprofil anzulegen. Dazu muss, wie auf dem darauffolgenden Bild zu sehen ist, auf „Register“ getippt werden.
 [](https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Register_Button.JPG)
