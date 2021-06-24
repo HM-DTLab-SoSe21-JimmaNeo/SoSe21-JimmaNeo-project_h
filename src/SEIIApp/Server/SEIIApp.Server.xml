@@ -13,7 +13,7 @@
         </member>
         <member name="M:SEIIApp.Server.Controllers.LessonDefinitionController.GetAllLessons">
             <summary>
-            Returns all lessons names and ids.
+            Returns all lessons.
             </summary>
             <returns></returns>
         </member>
@@ -64,6 +64,13 @@
             <param name="lessonProfilId"></param>
             <returns></returns>
         </member>
+        <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetProfilByID(System.Int32)">
+            <summary>
+            Return the profil with the given id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetProfilByEmail(System.String)">
             <summary>
             Return the profil with the given email.
@@ -73,7 +80,7 @@
         </member>
         <member name="M:SEIIApp.Server.Controllers.ProfilDefinitionController.GetAllProfile">
             <summary>
-            Returns all profiles names and ids.
+            Returns all profiles.
             </summary>
             <returns></returns>
         </member>

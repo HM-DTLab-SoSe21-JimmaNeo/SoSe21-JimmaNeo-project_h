@@ -51,15 +51,9 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Returns all lessons names and ids.
+        /// Returns all lessons.
         /// </summary>
         /// <returns></returns>
-        //public ActionResult<ProfilDefinitionBaseDto[]> GetAllQuizes()
-        //{
-        //    var quizzes = ProfilDefinitionService.GetAllProfiles();
-        //    var mappedQuizzes = Mapper.Map<ProfilDefinitionBaseDto[]>(quizzes);
-        //    return Ok(mappedQuizzes);
-        //}
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

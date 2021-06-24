@@ -102,16 +102,9 @@ namespace SEIIApp.Server.Controllers
                 //Wir "mappen" das gelieferte Modell zu unserer lokalen Domänen-Repräsentation
                 var mappedModel = Mapper.Map<LessonProfilDefinition>(model);
 
-               
-
                 if (model.LessonProfilId == 0)
                 { //add
-                 // try { 
                         mappedModel = LessonProfilDefinitionService.AddLessonProfil(mappedModel);
-                //    }catch
-                    //{ 
-                    //return Conflict(ModelState);
-                    //}
                     }
                 else
                 { //update

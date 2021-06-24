@@ -25,15 +25,6 @@ namespace SEIIApp.Server.Services
         {
             return ApplicationDBContext
                 .ProfilDefinitions;
-
-            //   .Include(quiz => quiz.Questions)
-            //      .ThenInclude(question => question.Answers);
-
-            /* Diese Includes sagen der Datenbank, dass wir mit Joins arbeiten.
-             * Wir holen daher aus den Datenbanken, in denen auch die Fragen zu einem Quiz und
-             * die Antworten zu den Fragen gespeichert werden, die verbundenen Entitäten
-             * aus der Datenbank.
-             */
         }
 
         /// <summary>
@@ -73,7 +64,7 @@ namespace SEIIApp.Server.Services
         /// </summary>
         public ProfilDefinition UpdateProfil(ProfilDefinition profil)
         {
-            //Wenn wir ein Quiz aktualisieren, dann fragen wir das existierende Quiz ab und 
+            //Wenn wir ein Profil aktualisieren, dann fragen wir das existierende Profil ab und 
             //Mappen die Änderung hinein.
 
             var existingProfil = GetProfilWithId(profil.Id);
