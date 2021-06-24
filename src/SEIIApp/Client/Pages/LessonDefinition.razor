@@ -2,13 +2,14 @@
 
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject Service.LessonProfileDefinitionBackendAccessService LessonProfileDefinitionService
+@inject Service.LoggedInStates States
 @inject NavigationManager navigation
 @* ------------- Display Helping Hands on the top right  -------------------*@
 <div class="float-right">
 
     @if (buttonPressed)
     {
-        <button type="button" class="btn-add-helper" @onclick="() => addUserToHelpingHands()">
+        <button type="button" class="btn-add-helper" @onclick="removeUserFromHelpingHands">
             <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65" />
             <br />
             <span style="font-size:x-small">You are a helping hand!</span>
@@ -16,7 +17,7 @@
     }
     else
     {
-        <button type="button" class="btn-add-helper" @onclick="() => removeUserFromHelpingHands()">
+        <button type="button" class="btn-add-helper" @onclick="addUserToHelpingHands">
             <img src="css\images\helpingbutton_deactive.png" alt="no helping hand yet" height="65" />
             <br />
             <span style="font-size:x-small">Click to become a helping hand!</span>
@@ -66,12 +67,13 @@ else
     {
         @foreach (var lessonProfile in LessonsProfiles)
         {
-            <div class="float-right">
-                <button class="btn-add-helper">
-                    @(lessonProfile.lessonNumber)
-                    @(lessonProfile.Id)
-                </button>
-            </div>
+        <div class="float-right">
+            <button class="btn-add-helper" @onclick="() => sendMessageTo()">
+                <img src="css\images\Kamali.png" alt="Nuru" class="rounded-circle" height="65" />
+                <br />
+                <span class="name">Nuru</span>
+            </button>
+        </div>
         }
     }
 }
@@ -101,6 +103,7 @@ else
 
     private SEIIApp.Shared.DomainTdo.LessonDefinitionDto ExistingLesson { get; set; }
     private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto[] LessonsProfiles { get; set; }
+    private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto CurrentLessonProfile { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -118,22 +121,33 @@ else
     bool showHelpersButtonPressed = false;
     string pressedStyle = "";
 
-    void addUserToHelpingHands()
+    private async Task addUserToHelpingHands()
     {
         buttonPressed = !buttonPressed;
 
+        if (buttonPressed)
+        {
+            CurrentLessonProfile = new SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto { lessonNumber = LessonId, Id = States.Profile.Id};
+            await LessonProfileDefinitionService.AddProfileLesson(CurrentLessonProfile);
+            CurrentLessonProfile = await LessonProfileDefinitionService.GetLessonDefinitionByID(LessonId);
+        }
     }
 
-    void removeUserFromHelpingHands()
+    private async Task removeUserFromHelpingHands()
     {
         buttonPressed = !buttonPressed;
 
+        if (!buttonPressed)
+        {
+            await LessonProfileDefinitionService.DeleteProfileLesson(CurrentLessonProfile.LessonProfilId);
+            this.StateHasChanged();
+        }
     }
 
     private async Task getLessonHelpersProfiles()
     {
         showHelpersButtonPressed = !showHelpersButtonPressed;
-        LessonsProfiles = await LessonProfileDefinitionService.GetLessonProfileDefinitionWithLessonNumber(LessonId);
+        LessonsProfiles = await LessonProfileDefinitionService.GetLessonProfileDefinitionsWithLessonNumber(LessonId);
     }
     private void hideLessonHelpersProfiles()
     {

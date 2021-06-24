@@ -31,7 +31,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetLessonProfil(System.Int32)">
+        <member name="M:SEIIApp.Server.Controllers.LessonProfilDefinitionController.GetLessonProfilWithLessonID(System.Int32)">
             <summary>
             Return the lessonprofil with the given id.
             </summary>
@@ -126,7 +126,7 @@
             Returns all lessonprofil definitions for a specific lessonNumber. 
             </summary>
         </member>
-        <member name="M:SEIIApp.Server.Services.LessonProfilDefinitionService.GetLessonProfilWithid(System.Int32)">
+        <member name="M:SEIIApp.Server.Services.LessonProfilDefinitionService.GetLessonProfilWithLessonId(System.Int32)">
             <summary>
             Returns the lessonprofil with the given id.
             </summary>

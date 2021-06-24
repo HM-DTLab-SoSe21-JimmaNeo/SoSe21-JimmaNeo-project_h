@@ -41,9 +41,9 @@ namespace SEIIApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Shared.DomainTdo.LessonProfilDefinitionDto> GetLessonProfil([FromRoute] int lessonProfilId)
+        public ActionResult<LessonProfilDefinitionDto> GetLessonProfilWithLessonID([FromRoute] int lessonProfilId)
         {
-            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithid(lessonProfilId);
+            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithLessonId(lessonProfilId);
             if (lessonProfil == null) return StatusCode(StatusCodes.Status404NotFound);
 
             var mappedLessonProfil = Mapper.Map<LessonProfilDefinitionDto>(lessonProfil);
@@ -88,7 +88,7 @@ namespace SEIIApp.Server.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
      //   [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -137,7 +137,7 @@ namespace SEIIApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult DeleteLessonProfil([FromRoute] int lessonProfilId)
         {
-            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithid(lessonProfilId);
+            var lessonProfil = LessonProfilDefinitionService.GetLessonProfilWithId(lessonProfilId);
             if (lessonProfil == null) return StatusCode(StatusCodes.Status404NotFound);
 
             LessonProfilDefinitionService.RemoveLessonProfil(lessonProfil);

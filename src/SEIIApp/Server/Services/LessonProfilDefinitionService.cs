@@ -59,9 +59,15 @@ namespace SEIIApp.Server.Services
         /// <summary>
         /// Returns the lessonprofil with the given id.
         /// </summary>
-        public LessonProfilDefinition GetLessonProfilWithid(int lessonProfilId)
+        public LessonProfilDefinition GetLessonProfilWithLessonId(int lessonNumber)
         {
-            return GetQueryableForLessonProfilDefinitions().Where(lessonProfil => lessonProfil.lessonProfilId == lessonProfilId).FirstOrDefault();
+            return GetQueryableForLessonProfilDefinitions().Where(lessonProfil => lessonProfil.lessonNumber == lessonNumber).FirstOrDefault();
+            //FirstOrDefault liefert das erste gefundene Objekt oder null zurück
+        }        
+
+        public LessonProfilDefinition GetLessonProfilWithId(int LessonProfileId)
+        {
+            return GetQueryableForLessonProfilDefinitions().Where(lessonProfil => lessonProfil.lessonProfilId == LessonProfileId).FirstOrDefault();
             //FirstOrDefault liefert das erste gefundene Objekt oder null zurück
         }
 
@@ -91,7 +97,7 @@ namespace SEIIApp.Server.Services
             //Wenn wir ein LessonPofil aktualisieren, dann fragen wir das existierende Lesson ab und 
             //Mappen die Änderung hinein.
 
-            var existingLessonProfil = GetLessonProfilWithid(lessonProfil.lessonProfilId);
+            var existingLessonProfil = GetLessonProfilWithId(lessonProfil.lessonProfilId);
 
             Mapper.Map(lessonProfil, existingLessonProfil); //we can map into the same object type
 

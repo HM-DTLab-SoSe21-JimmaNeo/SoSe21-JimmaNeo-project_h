@@ -16,5 +16,7 @@ namespace SEIIApp.Client.Service
     public class LoggedInStates {
 
         public _userStatus CurrentState { get; set; } = _userStatus.LOGGED_OUT;
+
+        public SEIIApp.Shared.DomainTdo.ProfilDefinitionDto Profile { get; set; }
     }
 }

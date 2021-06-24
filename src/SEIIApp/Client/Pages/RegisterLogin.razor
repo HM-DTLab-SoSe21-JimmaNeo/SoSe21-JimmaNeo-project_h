@@ -99,7 +99,6 @@
 }
 
 @code { 
-    private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto Profile { get; set; }
     private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto ProfileInformations { get; set; }
     private string FirstName { get; set; }
     private string LastName { get; set; }
@@ -145,8 +144,8 @@
     private async Task Login()
     {
         CreateProfile();
-        Profile = await ProfileDefinitionService.GetProfileByEmail(ProfileInformations.Email);
-        if (Profile.Password == ProfileInformations.Password)
+        States.Profile = await ProfileDefinitionService.GetProfileByEmail(ProfileInformations.Email);
+        if (States.Profile.Password == ProfileInformations.Password)
         {
             GoToHomepage();
         }
