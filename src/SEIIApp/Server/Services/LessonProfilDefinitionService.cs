@@ -28,15 +28,6 @@ namespace SEIIApp.Server.Services
         {
             return ApplicationDBContext
                 .LessonProfilDefinitions;
-
-            //   .Include(profil => profil.id)
-            //      .ThenInclude(question => question.Answers);
-
-            /* Diese Includes sagen der Datenbank, dass wir mit Joins arbeiten.
-             * Wir holen daher aus den Datenbanken, in denen auch die Fragen zu einem Quiz und
-             * die Antworten zu den Fragen gespeichert werden, die verbundenen Entitäten
-             * aus der Datenbank.
-             */
         }
 
         /// <summary>
@@ -94,7 +85,7 @@ namespace SEIIApp.Server.Services
         /// </summary>
         public LessonProfilDefinition UpdateLessonProfil(LessonProfilDefinition lessonProfil)
         {
-            //Wenn wir ein LessonPofil aktualisieren, dann fragen wir das existierende Lesson ab und 
+            //Wenn wir ein LessonPofil aktualisieren, dann fragen wir das existierende LessonProfil ab und 
             //Mappen die Änderung hinein.
 
             var existingLessonProfil = GetLessonProfilWithId(lessonProfil.lessonProfilId);

@@ -28,15 +28,6 @@ namespace SEIIApp.Server.Services
         {
             return ApplicationDBContext
                 .LessonDefinitions;
-
-            //   .Include(profil => profil.id)
-            //      .ThenInclude(question => question.Answers);
-
-            /* Diese Includes sagen der Datenbank, dass wir mit Joins arbeiten.
-             * Wir holen daher aus den Datenbanken, in denen auch die Fragen zu einem Quiz und
-             * die Antworten zu den Fragen gespeichert werden, die verbundenen Entitäten
-             * aus der Datenbank.
-             */
         }
 
         /// <summary>

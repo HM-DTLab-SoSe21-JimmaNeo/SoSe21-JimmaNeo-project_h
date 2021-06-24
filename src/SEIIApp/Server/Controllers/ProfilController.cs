@@ -38,18 +38,18 @@ namespace SEIIApp.Server.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        //[HttpGet("{id}")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfilByID([FromRoute] int id)
-        //{
-        //    var profil = ProfilDefinitionService.GetProfilWithId(id);
-        //    if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
+        [HttpGet("ProfilId/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Shared.DomainTdo.ProfilDefinitionDto> GetProfilByID([FromRoute] int id)
+        {
+            var profil = ProfilDefinitionService.GetProfilWithId(id);
+            if (profil == null) return StatusCode(StatusCodes.Status404NotFound);
 
-        //    var mappedProfil = Mapper.Map<ProfilDefinitionDto>(profil);
-        //    return Ok(mappedProfil);
-        //}
+            var mappedProfil = Mapper.Map<ProfilDefinitionDto>(profil);
+            return Ok(mappedProfil);
+        }
 
         /// <summary>
         /// Return the profil with the given email.
@@ -70,17 +70,11 @@ namespace SEIIApp.Server.Controllers
         }
 
         /// <summary>
-        /// Returns all profiles names and ids.
+        /// Returns all profiles.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        //public ActionResult<ProfilDefinitionBaseDto[]> GetAllQuizes()
-        //{
-        //    var quizzes = ProfilDefinitionService.GetAllProfiles();
-        //    var mappedQuizzes = Mapper.Map<ProfilDefinitionBaseDto[]>(quizzes);
-        //    return Ok(mappedQuizzes);
-        //}
         public ActionResult<ProfilDefinitionDto[]> GetAllProfile()
         {
             var profile = ProfilDefinitionService.GetAllProfile();
