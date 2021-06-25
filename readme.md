@@ -110,6 +110,11 @@ Max Beider
 Backend: Unterstützung bei der Erstellung der Storyboards, Erstellung des Datenmodells, Logik im Backend, Erstellung und Verbindung mit MySQL AWS-Datenbank, Migrations
 
 **5.Anlagen**
-Name der Dokumente im Order Dokumentation und verweis auf die Dokumente.
-Also mindestens Storyboard, FAQ, PressRelease, usw.
-(In Md kann man Verlinkungen einfügen, die auf ein Unterverzeichnis im Repository verweisen).
+Teamfoto: DasIstTeamH.jpeg
+PressRelease: LMU_Team_H_PR.pdf
+Präsentation vom 11.06.: Präsentation_StepUp_0611.pfd
+Wireframes: Wireframes.pdf
+Storyboard erste Ideen HelpingHand und learning in baby steps: storyboard_teamH_1515.pdf
+Storyboard nur helping hand: storyboard_TeamH_helpingHandFeatureOnly.pdf
+FAQ
+
