@@ -138,6 +138,8 @@ Das Front End wurde als ASP.NET Core Web App mit C#, HTML und CSS realisiert. Hi
 
 Das Backend ist wie das Frontend mit ASP.NET Core 5.0 in C# realisiert. Es wurden Services registriert und benutzt, welche die Logik kapseln. Dazu zählen ein LessonDefinitionService, ProfilDefinitionService sowie der LessonProfilDefinitionService. Weiterhin wird eine DbContext-Unterklasse mit dem Namen ApplicationDbContext als bereichsbezogener Dienst im ASP.NET Core-Anwendungsdienstanbieter registriert. Der Kontext ist so konfiguriert, dass man sich mit einer MySQL AWS Datenbank verbindet, wo Daten gespeichert werden.  Das Datenbankschema wurde durch die Verwendung von Migrations inkrementell aktualisiert, um es mit dem Datenmodell der Anwendung synchron zu halten und zugleich die vorhandenen Daten in der Datenbank beizubehalten. Für das mappen der Klassen die zum Transfer der Daten und der Klassen, die zum Speichern der Daten in der Datenbank bestimmt sind, ist der AutoMapper zuständig. 
 
+Die Kommunikation der beiden Seiten läuft über die eingebauten Services und Controller, welche aus dem Frontend die in der Datenbank gekapselten Information mithilfe von REST-API Schnittstellen abfragen, einspeichern oder verändern. Die Datenkommunikation zwischen Client und Server ist typisch für eine SPA(Single Page Application) bei der der meiste Inhalt einer Webpage dynamisch per API kommuniziert wird.
+
 **4. Team und Ansprechpartner**
 Beschreiben Sie kurz Ihr Team und wer mit einer E-Mail-Adresse als Ansprechpartner fungieren kann (formhalber).
 
@@ -146,6 +148,9 @@ Frontend: Design, Erstausarbeitung der Storyboards zur gemeinsamen Fertigstellun
 
 David Röhr
 Middle End: Verknüpfung des Backends und dem Frontends mit Hilfe, Unterstützung bei der Entwicklung der Storyboards, FAQs und Wireframes.
+
+Christoph Ziegler
+Middle End: Verknüpfung des Backends mit dem Frontend mit Hilfe, Hilfe bei Einrichtung der AWS-MySQL Datenbank, Unterstützung bei der Entwicklung der Storyboards.
 
 Daniel Klaussner
 Pressrelease Erstentwurf,gemeinsame Erstellung der Storyboards, FAQ, Anwendungsbeschreibung
