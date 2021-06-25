@@ -67,11 +67,9 @@ else
         </button>
     </div>
 
-    @if (HelpingHandProfiles?.Length > 0)
-    {
-        @foreach (var helpingHandProfile in HelpingHandProfiles)
-        {
 
+    @foreach (var helpingHandProfile in HelpingHandProfiles)
+    {
             <div class="float-right">
                 <button class="btn-add-helper" @onclick="() => sendMessageTo()">
                     <img src="@helpingHandProfile.UrlImage" alt="@helpingHandProfile.FirstName" class="rounded-circle" height="65" />
@@ -80,7 +78,6 @@ else
 
                 </button>
             </div>
-        }
     }
 }
 
