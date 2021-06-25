@@ -8,9 +8,7 @@
 @* ------------- Display Helping Hands on the top right  -------------------*@
 <div class="float-right">
 
-    @if (buttonPressed)//(Array.Exists(LessonsProfiles, element => element == CurrentLessonProfile)) {
-                      // buttonPressed = true;
-                      //}
+    @if (buttonPressed)
 
     {
         <button type="button" class="btn-add-helper" @onclick="removeUserFromHelpingHands">
@@ -70,14 +68,16 @@ else
 
     @foreach (var helpingHandProfile in HelpingHandProfiles)
     {
-            <div class="float-right">
+        if (helpingHandProfile != null)
+        {<div class="float-right">
                 <button class="btn-add-helper" @onclick="() => sendMessageTo()">
                     <img src="@helpingHandProfile.UrlImage" alt="@helpingHandProfile.FirstName" class="rounded-circle" height="65" />
                     <br />
                     <span class="name">@helpingHandProfile.FirstName</span>
 
                 </button>
-            </div>
+            </div>  }
+
     }
 }
 
@@ -145,13 +145,14 @@ else
 
     private async Task removeUserFromHelpingHands()
     {
-        buttonPressed = !buttonPressed;
 
-        if (!buttonPressed)
+
+        if (buttonPressed)
         {
             await LessonProfileDefinitionService.DeleteProfileLesson(CurrentLessonProfile.LessonProfilId);
             this.StateHasChanged();
         }
+        buttonPressed = !buttonPressed;
     }
 
 
