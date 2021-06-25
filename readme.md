@@ -110,6 +110,7 @@ Max Beider
 Backend: Unterstützung bei der Erstellung der Storyboards, Erstellung des Datenmodells, Logik im Backend, Erstellung und Verbindung mit MySQL AWS-Datenbank, Migrations
 
 **5.Anlagen**
+
 Teamfoto: DasIstTeamH.jpeg
 
 PressRelease: LMU_Team_H_PR.pdf
@@ -123,4 +124,6 @@ Storyboard erste Ideen HelpingHand und learning in baby steps: storyboard_teamH_
 Storyboard nur helping hand: storyboard_TeamH_helpingHandFeatureOnly.pdf
 
 FAQ
+
+https://gitlab.lrz.de/seii_sose_2021/project_h/-/tree/master/Dokumentation
 
