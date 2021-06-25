@@ -62,8 +62,10 @@ Eine besondere Eigenschaft der App StepUp ist die sogenannte helping Hand. Mit d
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/show_helpers.JPG
 Möchte der Benutzer die helping Hands nicht mehr angezeigt bekommen genügt ein Tipp auf „Hide helpers“
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/hidehelpers_2.JPG
+
 Hat der Benutzer auf „Show helpers“ getippt, werden ihm die als helping Hand markierten Personen angezeigt.
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/hidehelpers_1.JPG
+
 In diesem Fall haben sich Nuru und Salim als Helping Hand bereitgestellt, dass heißt die Beiden fühlen sich in dem Themengebiet sicher und sind bereit Lernende bei Fragen zu unterstützen und gegebenenfalls auch bei einer entsprechenden Übung an einer Puppe Vorort zu helfen. Entscheidet sich der Benutzer beispielwiese für Nuru, so muss dieser Nuru antippen. Nach dem antippen färbt sich der Hintergrund von Nuru in einen Grünton.
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Eine_helping_Hand_ausw%C3%A4hlen_und_anschreiben.JPG
 Zusätzlich erscheint ein Nachrichtenfenster, in welchem die Frage an die Helping Hand Nuru vom Lernenden gestellt werden kann.
