@@ -125,5 +125,7 @@ Storyboard nur helping hand: storyboard_TeamH_helpingHandFeatureOnly.pdf
 
 FAQ
 
+Screenshots
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/tree/master/Dokumentation
 
