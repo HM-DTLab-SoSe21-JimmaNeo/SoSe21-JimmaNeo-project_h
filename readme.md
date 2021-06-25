@@ -23,59 +23,84 @@ Die App „StepUp – Learn and Help“ stellt eine Lernumgebung bereit, mit der
 **2.1 Profil**
 
 Um „StepUp“ nutzen zu können benötigt jeder Benutzer ein Profil. Der Benutzer hat beim Öffnen der App die Auswahl, ob dieser sich mit einem bereits vorhandenen Profil einloggt oder aber ein neues Profil erstellen möchte.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Login.JPG
 
 **2.1.1 Einloggen mit vorhanden Benutzerprofil**
 
 Ist dem Benutzer bereits ein Benutzerprofil zugewiesen, muss sich dieser mit seinen Logindaten einloggen. Zum erfolgreichen Login wird die E-Mail-Adresse, mit welcher sich der Benutzer in der App registriert hat und das dazugehörige Password des Benutzers benötigt. Wie im nachfolgenden Bild zu sehen, muss der Benutzer die richtigen Logindaten eingeben und anschließend auf „Submit“ tippen, um sich erfolgreich anzumelden.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Logindaten.JPG
 
 **2.1.2 Ein neues Benutzerprofil erstellen**
 
 Den Benutzern ist es selbstständig möglich ein neues Benutzerprofil anzulegen. Dazu muss, wie auf dem darauffolgenden Bild zu sehen ist, auf „Register“ getippt werden.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Register_Button.JPG
+
 Nach dem Tippen auf „Register“ kann das Profil angelegt werden.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Registrieren.JPG
+
 Mit der Eingabe des Vornamens, Nachnamens, der E-Mail-Adresse und einem entsprechenden Passwort, wird nach erfolgreicher Eingabe der Daten ein Profil des Benutzers angelegt. Nach erfolgreicher Anmeldung erhält der Benutzer eine Bestätigung über den Erfolg des Registrierungsvorgangs.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/registrierung_erfolgreich.JPG
 
 **2.1.3 Vorhandenes Benutzerprofil bearbeiten**
 
 Ein Benutzerprofil kann bei falschen oder fehlenden Angaben des Benutzers jederzeit bearbeitet werden. Dazu ist ein Tipp des Benutzers auf das Feld „Profile“ in dem Menü auf der linken Seite der App notwendig.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Profile_Menue.jpg
+
 Anschließend färbt sich der Hintergrund von „Profile“ in einen etwas helleren Blauton, wie auf dem Bild erkenntlich ist. 
 Unter Profile kann der Benutzer die persönlichen Daten beliebig ändern und ergänzen.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Daten_aendern.JPG
+
 Damit das Benutzerprofil persönlicher wird bietet die App unter „Profile“ zusätzlich die Möglichkeit an ein Foto des jeweiligen Benutzers hochzuladen. Das hochgeladene Foto ist das Profilbild des Benutzers, das heißt es wird fortan auch anderen Benutzern bei Nachrichten oder wenn die Person als helping Hand gemeldet ist angezeigt.
 
 **2.2 Lessons**
 
 Die Themengebiete in StepUp sind in so genannte „Lessons“ unterteilt. Dabei spiegelt jede Lesson ein bestimmtes Themengebiet wider, welches von dem Lernenden bearbeitet wird. Um das Bearbeiten einer Lesson zu beginnen, ist ein Tippen auf das gewünschte Themengebiet der Lesson erforderlich.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Lessons.JPG
+
 Hat sich der Benutzer für eine Lesson entschieden, öffnet sich eine neue Oberfläche, welche ein Video oder aber auch ein Bild beinhalten kann, welches sich der Lernende anschauen kann.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Lesson_1.jpg
+
 Zudem kann unterhalb des Videos auch ein Text eingefügt werden, damit der Benutzer Fachbegriffe oder Sonstiges besser versteht. Fühlt sich der Lernende sicher mit dem in der Lesson gelernten Inhalten, kann er damit beginnen die Fragen der Lesson zu beantworten.
 
 **2.3 Helping Hand**
 
 Eine besondere Eigenschaft der App StepUp ist die sogenannte helping Hand. Mit der helping Hand Funktion kann sich der Benutzer mit seinen Fragen an andere Kollegen, welche als helping Hand markiert sind, wenden. Der Lernende muss dafür, wenn er gerade eine Lesson bearbeitet, lediglich auf der rechten oberen Seite auf „Show helpers“ tippen.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/show_helpers.JPG
+
 Möchte der Benutzer die helping Hands nicht mehr angezeigt bekommen genügt ein Tipp auf „Hide helpers“
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/hidehelpers_2.JPG
 
 Hat der Benutzer auf „Show helpers“ getippt, werden ihm die als helping Hand markierten Personen angezeigt.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/hidehelpers_1.JPG
 
 In diesem Fall haben sich Nuru und Salim als Helping Hand bereitgestellt, dass heißt die Beiden fühlen sich in dem Themengebiet sicher und sind bereit Lernende bei Fragen zu unterstützen und gegebenenfalls auch bei einer entsprechenden Übung an einer Puppe Vorort zu helfen. Entscheidet sich der Benutzer beispielwiese für Nuru, so muss dieser Nuru antippen. Nach dem antippen färbt sich der Hintergrund von Nuru in einen Grünton.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Eine_helping_Hand_ausw%C3%A4hlen_und_anschreiben.JPG
+
 Zusätzlich erscheint ein Nachrichtenfenster, in welchem die Frage an die Helping Hand Nuru vom Lernenden gestellt werden kann.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Nachricht_an_helping_Hand.JPG
+
 Hier hat der Benutzer die Möglichkeit seine Frage zu stellen oder sich einfach für eine bereits von Nuru beantwortete frage zu bedanken.
 
 **2.3.1 Selbst eine Helping Hand werden**
 
 Fühlt sich der Lernende schließlich in einem gelernten Thema kompetent und meint, dass er anderen die ebenfalls die Lesson bearbeiten helfen kann, so kann dieser sich als Helping Hand eintragen und ab sofort anderen bei Fragen zur Verfügung stehen. Hierzu muss der Benutzer auf die zwei Hände, mit der Unterschrift „Click to become a helping Hand!“ auf der rechten oberen Seite tippen.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/helping_hand.JPG
+
 Hat sich der Benutzer erfolgreich als Helping Hand markiert werden die zwei Hände grünbläulich mit der Unterschrift „You are a helping Hand!“ gefärbt und der Name des Benutzers, in diesem Fall Kamali, wird ab sofort neben dem helping Hand Symbol angezeigt.
 
 **2.3.2 Sich als helping Hand austragen**
@@ -86,14 +111,22 @@ Wenn der Benutzer bei einer Lesson als helping Hand markiert ist und sich wieder
 **2.4 Messages**
 
 Der Lernende einer Session als auch die als helping Hand gemeldete Person sind beides Benutzer, welche untereinander Nachrichten, bei einer aufkommenden Frage, schreiben können. Damit die Nachrichten angezeigt werden, kann der Benutzer auf der linken Seite auf das Feld „Home“ tippen. 
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Home_Menue.jpg
+
 Anschließend färbt sich der Hintergrund von „Home“ in einen etwas helleren Blauton, wie auf dem Bild erkenntlich ist.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Neue_Nachricht.JPG
+
 Auf der darauffolgenden angezeigten Seite ist auf der rechten Seite ein grünes Briefsymbol zu sehen, auf welches getippt werden muss. In diesem Beispielsfall wird neben dem Briefsymbol die Zahl zwei angezeigt und bedeutet, dass der Benutzer zwei ungelesene Nachrichten hat. Tippt der Benutzer auf das Briefsymbol öffnet sich der Posteingang in welchem alle Nachrichten zu sehen sind.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Nachrichten.JPG
+
 Der Benutzer hat die Möglichkeit auf jede der angezeigten Nachrichten mit einem Tipp auf „Reply“ zu antworten oder aber die Nachricht mit einem Tipp auf „Delete“ zu löschen.
 Eine zweite Möglichkeit zum Anzeigen der Nachrichten ist über das Menü auf der linken Seite, mit einem Tipp auf „Messages“, möglich.
+
 https://gitlab.lrz.de/seii_sose_2021/project_h/-/blob/master/Dokumentation/Screenshots/Anwendungsbeschreibung/Messages_Menue.jpg
+
 Anschließend färbt sich der Hintergrund von „Messages“ in einen etwas helleren Blauton, wie auf dem Bild erkenntlich ist.
 
 
