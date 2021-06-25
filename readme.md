@@ -109,6 +109,8 @@ Pressrelease Erstentwurf,gemeinsame Erstellung der Storyboards, FAQ, Anwendungsb
 Max Beider
 Backend: Unterstützung bei der Erstellung der Storyboards, Erstellung des Datenmodells, Logik im Backend, Erstellung und Verbindung mit MySQL AWS-Datenbank, Migrations
 
+Ansprechpartner: julia.helmer@hm.edu
+
 **5.Anlagen**
 
 Teamfoto: DasIstTeamH.jpeg
