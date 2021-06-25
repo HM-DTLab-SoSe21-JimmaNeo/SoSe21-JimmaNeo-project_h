@@ -3,11 +3,15 @@
 @inject Service.LessonDefinitionBackendAccessService LessonDefinitionService
 @inject Service.LessonProfileDefinitionBackendAccessService LessonProfileDefinitionService
 @inject Service.LoggedInStates States
+@inject Service.ProfileDefinitionBackendAccessService ProfileDefinitionService
 @inject NavigationManager navigation
 @* ------------- Display Helping Hands on the top right  -------------------*@
 <div class="float-right">
 
-    @if (buttonPressed)
+    @if (buttonPressed)//(Array.Exists(LessonsProfiles, element => element == CurrentLessonProfile)) {
+                      // buttonPressed = true;
+                      //}
+
     {
         <button type="button" class="btn-add-helper" @onclick="removeUserFromHelpingHands">
             <img src="css\images\helpingbutton_active.png" alt="helping hands" height="65" />
@@ -63,18 +67,19 @@ else
         </button>
     </div>
 
-    @if (LessonsProfiles?.Length > 0)
+    @if (HelpingHandProfiles?.Length > 0)
     {
-        @foreach (var lessonProfile in LessonsProfiles)
+        @foreach (var helpingHandProfile in HelpingHandProfiles)
         {
-        <div class="float-right">
-            <button class="btn-add-helper" @onclick="() => sendMessageTo()">
-                <img src="@States.Profile.UrlImage" alt="@States.Profile.FirstName" class="rounded-circle" height="65" />
-                <br />
-                <span class="name">@States.Profile.FirstName</span>
-               
-            </button>
-        </div>
+
+            <div class="float-right">
+                <button class="btn-add-helper" @onclick="() => sendMessageTo()">
+                    <img src="@helpingHandProfile.UrlImage" alt="@helpingHandProfile.FirstName" class="rounded-circle" height="65" />
+                    <br />
+                    <span class="name">@helpingHandProfile.FirstName</span>
+
+                </button>
+            </div>
         }
     }
 }
@@ -103,14 +108,15 @@ else
     public int LessonId { get; set; }
 
     private SEIIApp.Shared.DomainTdo.LessonDefinitionDto ExistingLesson { get; set; }
-    private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto[] LessonsProfiles { get; set; }
+    private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto[] LessonDefinitionProfiles { get; set; }
     private SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto CurrentLessonProfile { get; set; }
+    private SEIIApp.Shared.DomainTdo.ProfilDefinitionDto[] HelpingHandProfiles { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
         if (LessonId != 0)
         {
-
+            LessonDefinitionProfiles = await LessonProfileDefinitionService.GetLessonProfileDefinitionsWithLessonNumber(LessonId);
             ExistingLesson = await LessonDefinitionService.GetLessonById(LessonId);
         }
         await base.OnParametersSetAsync();
@@ -128,9 +134,15 @@ else
 
         if (buttonPressed)
         {
-            CurrentLessonProfile = new SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto { lessonNumber = LessonId, Id = States.Profile.Id};
-            await LessonProfileDefinitionService.AddProfileLesson(CurrentLessonProfile);
-            CurrentLessonProfile = await LessonProfileDefinitionService.GetLessonDefinitionByID(LessonId);
+            CurrentLessonProfile = new SEIIApp.Shared.DomainTdo.LessonProfilDefinitionDto { lessonNumber = LessonId, Id = States.Profile.Id };
+            //Check if profile is already contained in lessonProfileDefinitions
+            int isAlreadyHelpingHand = Array.IndexOf(LessonDefinitionProfiles, CurrentLessonProfile);
+            if (isAlreadyHelpingHand == -1)
+            {
+                await LessonProfileDefinitionService.AddProfileLesson(CurrentLessonProfile);
+                CurrentLessonProfile = await LessonProfileDefinitionService.GetLessonDefinitionByID(LessonId);
+            }
+
         }
     }
 
@@ -145,10 +157,25 @@ else
         }
     }
 
+
     private async Task getLessonHelpersProfiles()
     {
+        int i = 0;
         showHelpersButtonPressed = !showHelpersButtonPressed;
-        LessonsProfiles = await LessonProfileDefinitionService.GetLessonProfileDefinitionsWithLessonNumber(LessonId);
+        if (LessonDefinitionProfiles?.Length > 0)
+        {
+            HelpingHandProfiles = new SEIIApp.Shared.DomainTdo.ProfilDefinitionDto[LessonDefinitionProfiles.Length];
+
+            foreach (var lessonProfile in LessonDefinitionProfiles)
+            {
+                HelpingHandProfiles[i] = await ProfileDefinitionService.GetProfileById(lessonProfile.Id);
+                if (HelpingHandProfiles[i].UrlImage == null)
+                {
+                    HelpingHandProfiles[i].UrlImage = "css/images/blankProfile.png";
+                }
+                i++;
+            }
+        }
     }
     private void hideLessonHelpersProfiles()
     {

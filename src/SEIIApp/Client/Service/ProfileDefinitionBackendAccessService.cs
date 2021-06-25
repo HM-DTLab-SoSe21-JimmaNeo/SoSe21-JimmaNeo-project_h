@@ -23,7 +23,13 @@ namespace SEIIApp.Client.Service
         {
             return "api/profildefinitions";
         }
-        private string GetProfileDefinitionWithEmail(string email)
+
+        private string GetProfileDefinitionWithId(int id)
+        {
+            return $"{GetProfileDefinitionUrl()}/ProfilId/{id}";
+        }
+
+            private string GetProfileDefinitionWithEmail(string email)
         {
             return $"{GetProfileDefinitionUrl()}/{email}";
         }
@@ -36,6 +42,11 @@ namespace SEIIApp.Client.Service
         public async Task<ProfilDefinitionDto> GetProfileByEmail(string email)
         {
            return await HttpClient.GetFromJsonAsync<ProfilDefinitionDto>(GetProfileDefinitionWithEmail(email));
+        }
+
+        public async Task<ProfilDefinitionDto> GetProfileById(int id)
+        {
+            return await HttpClient.GetFromJsonAsync<ProfilDefinitionDto>(GetProfileDefinitionWithId(id));
         }
     }
 }
